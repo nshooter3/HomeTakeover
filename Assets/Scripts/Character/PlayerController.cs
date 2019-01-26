@@ -29,6 +29,20 @@
 
         private bool grounded = true;
 
+        public static PlayerController instance;
+
+        private void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(this);
+            }
+        }
+
         private void Start()
         {
             rgdb = GetComponent<Rigidbody2D>();
