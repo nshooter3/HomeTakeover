@@ -19,6 +19,7 @@
 
 
         public GameObject bullet;
+        int ammocount = 5;
 
 
         private float timer;
@@ -38,16 +39,18 @@
         {
             Vector2 v2 = this.gameObject.transform.position;
             Collider2D[] hitColliders = Physics2D.OverlapCircleAll(v2, enemyAttackRange);
+            float playerDistance = Vector2.Distance((Vector2)this.gameObject.transform.position, v2);
 
-            for (int i = 0; hitColliders.Length > i; i++)
-                if (hitColliders[i].gameObject.tag == "Player")
-                {
-                    inRange = true;
-                }
-                else
-                {
-                    inRange = false;
-                }
+
+
+            if (playerDistance <= enemyAttackRange)
+            {
+                inRange = true;
+            }
+            else
+            {
+                inRange = false;
+            }
 
             if (inRange)
             {
@@ -55,7 +58,12 @@
                 if (timer > flipTime)
                 {
                     timer = 0;
-                    //Fire()
+                    while (ammocount > 0)
+                    {
+                        Fire();
+                        ammocount--;
+                    }
+                    ammocount = 5;
                 }
             }
         }
@@ -89,21 +97,20 @@
 
             if (inRange)
             {
-                timer = 0;
-                this.Target();
+                //this.Target();
                 //shoot
             }
 
 
             rgbd2d.velocity = new Vector2(speed, rgbd2d.velocity.y);
-            Fire();
         }
 
         //Fire Bullets!
         private void Fire()
         {
             GameObject temp = GameObject.Instantiate<GameObject>(bullet);
-            temp.GetComponent<Rigidbody2D>().AddForce(temp.transform.forward * 500);
+            temp.transform.position = this.gameObject.transform.position;
+            temp.GetComponent<Rigidbody2D>().velocity = new Vector2(1,1) * 8.0f;
         }
 
     }
