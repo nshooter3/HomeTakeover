@@ -12,9 +12,9 @@
             {   
                 TextureImporter textureImporter  = (TextureImporter)assetImporter;
                 textureImporter.spritePixelsPerUnit = 32;
-
                 textureImporter.maxTextureSize = 512;
                 textureImporter.textureCompression = TextureImporterCompression.Uncompressed;
+                textureImporter.filterMode = FilterMode.Point;
             }
         }
     }
