@@ -8,8 +8,8 @@
     <Keyboard_LookDown>None</Keyboard_LookDown>
     <Keyboard_LookLeft>None</Keyboard_LookLeft>
     <Keyboard_LookRight>None</Keyboard_LookRight>
-    <Keyboard_Melee>Mouse0</Keyboard_Melee>
-    <Keyboard_Shoot>Mouse1</Keyboard_Shoot>
+    <Keyboard_Melee>Mouse1</Keyboard_Melee>
+    <Keyboard_Attack>Mouse0</Keyboard_Attack>
     <Keyboard_Reload>R</Keyboard_Reload>
     <Keyboard_Jump>Space</Keyboard_Jump>
     <Keyboard_Pause>Escape</Keyboard_Pause>
@@ -24,7 +24,7 @@
     <Gamepad_LookLeft>Right Stick Left</Gamepad_LookLeft>
     <Gamepad_LookRight>Right Stick Right</Gamepad_LookRight>
     <Gamepad_Melee>Left Trigger</Gamepad_Melee>
-    <Gamepad_Shoot>Right Trigger</Gamepad_Shoot>
+    <Gamepad_Attack>Right Trigger</Gamepad_Attack>
     <Gamepad_Reload>X</Gamepad_Reload>
     <Gamepad_Jump>Y</Gamepad_Jump>
     <Gamepad_Pause>Start</Gamepad_Pause>
@@ -41,7 +41,7 @@
     <Keyboard_LookLeft>None</Keyboard_LookLeft>
     <Keyboard_LookRight>None</Keyboard_LookRight>
     <Keyboard_Melee>None</Keyboard_Melee>
-    <Keyboard_Shoot>None</Keyboard_Shoot>
+    <Keyboard_Attack>None</Keyboard_Attack>
     <Keyboard_Reload>None</Keyboard_Reload>
     <Keyboard_Jump>None</Keyboard_Jump>
     <Keyboard_Pause>None</Keyboard_Pause>
@@ -65,8 +65,8 @@
     </Gamepad_LookRight>
     <Gamepad_Melee>
     </Gamepad_Melee>
-    <Gamepad_Shoot>
-    </Gamepad_Shoot>
+    <Gamepad_Attack>
+    </Gamepad_Attack>
     <Gamepad_Reload>
     </Gamepad_Reload>
     <Gamepad_Jump>
@@ -88,7 +88,7 @@
     <Keyboard_LookLeft>None</Keyboard_LookLeft>
     <Keyboard_LookRight>None</Keyboard_LookRight>
     <Keyboard_Melee>None</Keyboard_Melee>
-    <Keyboard_Shoot>None</Keyboard_Shoot>
+    <Keyboard_Attack>None</Keyboard_Attack>
     <Keyboard_Reload>None</Keyboard_Reload>
     <Keyboard_Jump>None</Keyboard_Jump>
     <Keyboard_Pause>None</Keyboard_Pause>
@@ -112,8 +112,8 @@
     </Gamepad_LookRight>
     <Gamepad_Melee>
     </Gamepad_Melee>
-    <Gamepad_Shoot>
-    </Gamepad_Shoot>
+    <Gamepad_Attack>
+    </Gamepad_Attack>
     <Gamepad_Reload>
     </Gamepad_Reload>
     <Gamepad_Jump>
@@ -135,7 +135,7 @@
     <Keyboard_LookLeft>None</Keyboard_LookLeft>
     <Keyboard_LookRight>None</Keyboard_LookRight>
     <Keyboard_Melee>None</Keyboard_Melee>
-    <Keyboard_Shoot>None</Keyboard_Shoot>
+    <Keyboard_Attack>None</Keyboard_Attack>
     <Keyboard_Reload>None</Keyboard_Reload>
     <Keyboard_Jump>None</Keyboard_Jump>
     <Keyboard_Pause>None</Keyboard_Pause>
@@ -159,8 +159,8 @@
     </Gamepad_LookRight>
     <Gamepad_Melee>
     </Gamepad_Melee>
-    <Gamepad_Shoot>
-    </Gamepad_Shoot>
+    <Gamepad_Attack>
+    </Gamepad_Attack>
     <Gamepad_Reload>
     </Gamepad_Reload>
     <Gamepad_Jump>
@@ -182,7 +182,7 @@
     <Keyboard_LookLeft>None</Keyboard_LookLeft>
     <Keyboard_LookRight>None</Keyboard_LookRight>
     <Keyboard_Melee>None</Keyboard_Melee>
-    <Keyboard_Shoot>None</Keyboard_Shoot>
+    <Keyboard_Attack>None</Keyboard_Attack>
     <Keyboard_Reload>None</Keyboard_Reload>
     <Keyboard_Jump>None</Keyboard_Jump>
     <Keyboard_Pause>None</Keyboard_Pause>
@@ -206,8 +206,8 @@
     </Gamepad_LookRight>
     <Gamepad_Melee>
     </Gamepad_Melee>
-    <Gamepad_Shoot>
-    </Gamepad_Shoot>
+    <Gamepad_Attack>
+    </Gamepad_Attack>
     <Gamepad_Reload>
     </Gamepad_Reload>
     <Gamepad_Jump>
@@ -229,7 +229,7 @@
     <Keyboard_LookLeft>None</Keyboard_LookLeft>
     <Keyboard_LookRight>None</Keyboard_LookRight>
     <Keyboard_Melee>None</Keyboard_Melee>
-    <Keyboard_Shoot>None</Keyboard_Shoot>
+    <Keyboard_Attack>None</Keyboard_Attack>
     <Keyboard_Reload>None</Keyboard_Reload>
     <Keyboard_Jump>None</Keyboard_Jump>
     <Keyboard_Pause>None</Keyboard_Pause>
@@ -253,8 +253,8 @@
     </Gamepad_LookRight>
     <Gamepad_Melee>
     </Gamepad_Melee>
-    <Gamepad_Shoot>
-    </Gamepad_Shoot>
+    <Gamepad_Attack>
+    </Gamepad_Attack>
     <Gamepad_Reload>
     </Gamepad_Reload>
     <Gamepad_Jump>
@@ -276,7 +276,7 @@
     <Keyboard_LookLeft>None</Keyboard_LookLeft>
     <Keyboard_LookRight>None</Keyboard_LookRight>
     <Keyboard_Melee>None</Keyboard_Melee>
-    <Keyboard_Shoot>None</Keyboard_Shoot>
+    <Keyboard_Attack>None</Keyboard_Attack>
     <Keyboard_Reload>None</Keyboard_Reload>
     <Keyboard_Jump>None</Keyboard_Jump>
     <Keyboard_Pause>None</Keyboard_Pause>
@@ -300,8 +300,8 @@
     </Gamepad_LookRight>
     <Gamepad_Melee>
     </Gamepad_Melee>
-    <Gamepad_Shoot>
-    </Gamepad_Shoot>
+    <Gamepad_Attack>
+    </Gamepad_Attack>
     <Gamepad_Reload>
     </Gamepad_Reload>
     <Gamepad_Jump>

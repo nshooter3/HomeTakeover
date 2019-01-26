@@ -14,7 +14,7 @@
         /// <summary> This is used to define user inputs, changed to add or remove buttons. </summary>
         public enum UserInput
         {
-            Up, Down, Left, Right, LookUp, LookDown, LookLeft, LookRight, Melee, Shoot, Reload, Jump, Pause, Accept, Cancel
+            Up, Down, Left, Right, LookUp, LookDown, LookLeft, LookRight, Melee, Attack, Reload, Jump, Pause, Accept, Cancel
         }
 
         /// <summary> The file to save the bindings to. </summary>
@@ -31,7 +31,7 @@
             rawSign[(int)UserInput.Left] = -1;
             rawSign[(int)UserInput.Right] = 1;
             rawSign[(int)UserInput.Melee] = 1;
-            rawSign[(int)UserInput.Shoot] = 1;
+            rawSign[(int)UserInput.Attack] = 1;
             rawSign[(int)UserInput.Reload] = 1;
             rawSign[(int)UserInput.Jump] = 1;
             rawSign[(int)UserInput.Pause] = 1;
@@ -57,8 +57,8 @@
             keyboard[(int)UserInput.Down, 0] = KeyCode.S;
             keyboard[(int)UserInput.Left, 0] = KeyCode.A;
             keyboard[(int)UserInput.Right, 0] = KeyCode.D;
-            keyboard[(int)UserInput.Melee, 0] = KeyCode.Mouse0;
-            keyboard[(int)UserInput.Shoot, 0] = KeyCode.Mouse1;
+            keyboard[(int)UserInput.Melee, 0] = KeyCode.Mouse1;
+            keyboard[(int)UserInput.Attack, 0] = KeyCode.Mouse0;
             keyboard[(int)UserInput.Reload, 0] = KeyCode.R;
             keyboard[(int)UserInput.Jump, 0] = KeyCode.Space;
             keyboard[(int)UserInput.Pause, 0] = KeyCode.Escape;
@@ -85,7 +85,7 @@
             gamepad[(int)UserInput.LookLeft, 0] = RIGHT_STICK_LEFT;
             gamepad[(int)UserInput.LookRight, 0] = RIGHT_STICK_RIGHT;
             gamepad[(int)UserInput.Melee, 0] = LEFT_TRIGGER;
-            gamepad[(int)UserInput.Shoot, 0] = RIGHT_TRIGGER;
+            gamepad[(int)UserInput.Attack, 0] = RIGHT_TRIGGER;
             gamepad[(int)UserInput.Reload, 0] = X;
             gamepad[(int)UserInput.Jump, 0] = Y;
             gamepad[(int)UserInput.Pause, 0] = START;

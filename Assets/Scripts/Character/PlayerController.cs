@@ -15,6 +15,13 @@
         private List<Transform> raycastCheckPoints;
         private float raycastDistance = 0.1f;
 
+        public Transform reticule;
+        public Transform defaultArmEndPos;
+        public Transform armHolderTransform;
+        public SpriteRenderer armSprite;
+
+        private float armReturnTimer = 0.0f, maxArmReturnTimer = 0.25f;
+
         public LayerMask layerMask;
 
         private bool grounded = true;
@@ -44,6 +51,38 @@
         void Update()
         {
             Move();
+            UpdateArmRotation();
+            if (armReturnTimer > 0)
+            {
+                armReturnTimer = Mathf.Max(0, armReturnTimer -= Time.deltaTime);
+            }
+            if (CustomInput.BoolFreshPress(CustomInput.UserInput.Attack))
+            {
+                armReturnTimer = maxArmReturnTimer;
+            }
+            UpdateArmStrech(Vector3.Lerp(defaultArmEndPos.transform.position, reticule.transform.position, armReturnTimer/ maxArmReturnTimer));
+        }
+
+        void UpdateArmRotation()
+        {
+            // Get Angle in Radians
+            float AngleRad = Mathf.Atan2(reticule.transform.position.y - armHolderTransform.transform.position.y, reticule.transform.position.x - armHolderTransform.transform.position.x);
+            // Get Angle in Degrees
+            float AngleDeg = (180 / Mathf.PI) * AngleRad;
+            // Rotate Object
+            armHolderTransform.transform.rotation = Quaternion.Euler(0, 0, AngleDeg + 90);
+        }
+
+        void UpdateArmStrech(Vector2 pos)
+        {
+            StrechSprite(armSprite.gameObject, armHolderTransform.position, pos);
+        }
+
+        public void StrechSprite(GameObject sprite, Vector2 initialPosition, Vector2 finalPosition)
+        {
+            Vector2 scale = new Vector2(1, 1);
+            scale.y = Vector2.Distance(initialPosition, finalPosition) * 1.6f;
+            sprite.transform.localScale = scale;
         }
 
         private bool IsGrounded()
