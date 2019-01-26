@@ -54,6 +54,7 @@
         /// The transform that picked up objects get parented to.
         /// </summary>
         public Transform objectPivotPoint;
+        private float initObjectPivotPointY;
 
         /// <summary>
         /// The radius used to check for grabbable objects around the player's hand when they try to grab things.
@@ -79,7 +80,7 @@
         /// </summary>
         public Animator anim;
 
-        private float armReturnTimer = 0.0f, maxArmReturnTimer = 0.25f;
+        private float armReturnTimer = 0.0f, maxArmReturnTimer = 0.225f;
 
         /// <summary>
         /// Singleton
@@ -107,6 +108,7 @@
             raycastCheckPoints.Add(right);
 
             armSpriteInitSize = armSprite.size;
+            initObjectPivotPointY = objectPivotPoint.position.y;
         }
 
         // Update is called once per frame
@@ -206,6 +208,7 @@
                 ypos = 0;
             }
             sprite.transform.localPosition = new Vector3(sprite.transform.localPosition.x, ypos, sprite.transform.localPosition.z);
+            objectPivotPoint.transform.localPosition = new Vector3(0, (initObjectPivotPointY + distance) *-1, 0);
         }
 
         /// <summary> True if the player is pressing a movement key. </summary>

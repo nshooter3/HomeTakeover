@@ -567,11 +567,6 @@ PrefabInstance:
       propertyPath: layerMask.m_Bits
       value: 256
       objectReference: {fileID: 0}
-    - target: {fileID: 1952697957717543948, guid: ef0deb5480b7e2d4fa5e3fe14c3e298b,
-        type: 3}
-      propertyPath: throwForce
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef0deb5480b7e2d4fa5e3fe14c3e298b, type: 3}
 --- !u!1001 &2514682392940937531
