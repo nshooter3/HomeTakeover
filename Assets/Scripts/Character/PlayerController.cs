@@ -19,6 +19,9 @@
         public Transform defaultArmEndPos;
         public Transform armHolderTransform;
         public SpriteRenderer armSprite;
+        Vector2 armSpriteInitSize;
+
+        public Animator anim;
 
         private float armReturnTimer = 0.0f, maxArmReturnTimer = 0.25f;
 
@@ -33,34 +36,31 @@
             raycastCheckPoints.Add(left);
             raycastCheckPoints.Add(transform);
             raycastCheckPoints.Add(right);
-        }
 
-        /// <summary> True if the player is pressing a movement key. </summary>
-        private bool Moving
-        {
-            get
-            {
-                return CustomInput.BoolHeld(CustomInput.UserInput.Left) ||
-                    CustomInput.BoolHeld(CustomInput.UserInput.Right) ||
-                    CustomInput.BoolHeld(CustomInput.UserInput.Up) ||
-                    CustomInput.BoolHeld(CustomInput.UserInput.Down);
-            }
+            armSpriteInitSize = armSprite.size;
         }
 
         // Update is called once per frame
         void Update()
         {
             Move();
+            UpdateArm();
+            UpdateAnimations();
+        }
+
+        void UpdateArm()
+        {
             UpdateArmRotation();
             if (armReturnTimer > 0)
             {
                 armReturnTimer = Mathf.Max(0, armReturnTimer -= Time.deltaTime);
+                Vector3 pos = Vector3.Lerp(defaultArmEndPos.transform.position, reticule.transform.position, armReturnTimer / maxArmReturnTimer);
+                UpdateArmStretch(armSprite, armHolderTransform.position, pos);
             }
             if (CustomInput.BoolFreshPress(CustomInput.UserInput.Attack))
             {
                 armReturnTimer = maxArmReturnTimer;
             }
-            UpdateArmStrech(Vector3.Lerp(defaultArmEndPos.transform.position, reticule.transform.position, armReturnTimer/ maxArmReturnTimer));
         }
 
         void UpdateArmRotation()
@@ -73,16 +73,24 @@
             armHolderTransform.transform.rotation = Quaternion.Euler(0, 0, AngleDeg + 90);
         }
 
-        void UpdateArmStrech(Vector2 pos)
+        public void UpdateArmStretch(SpriteRenderer sprite, Vector2 initialPosition, Vector2 finalPosition)
         {
-            StrechSprite(armSprite.gameObject, armHolderTransform.position, pos);
+            float distance = Vector2.Distance(initialPosition, finalPosition);
+            float yScale = distance * 1.6f;
+            sprite.size = new Vector2(armSpriteInitSize.x - 0.15f*(armReturnTimer / maxArmReturnTimer), armSpriteInitSize.y * yScale);
+            float ypos = Mathf.Lerp(0, -0.25f, armReturnTimer / maxArmReturnTimer);
+            if (distance <= 2.5f)
+            {
+                ypos = 0;
+            }
+            sprite.transform.localPosition = new Vector3(sprite.transform.localPosition.x, ypos, sprite.transform.localPosition.z);
         }
 
-        public void StrechSprite(GameObject sprite, Vector2 initialPosition, Vector2 finalPosition)
+        /// <summary> True if the player is pressing a movement key. </summary>
+        private bool IsMoving()
         {
-            Vector2 scale = new Vector2(1, 1);
-            scale.y = Vector2.Distance(initialPosition, finalPosition) * 1.6f;
-            sprite.transform.localScale = scale;
+            return CustomInput.BoolHeld(CustomInput.UserInput.Left) ||
+                    CustomInput.BoolHeld(CustomInput.UserInput.Right);
         }
 
         private bool IsGrounded()
@@ -99,17 +107,31 @@
             return false;
         }
 
+        private void UpdateAnimations()
+        {
+            anim.SetBool("IsMoving", IsMoving());
+            anim.SetBool("IsGrounded", IsGrounded());
+        }
+
         private void Move()
         {
             Vector2 vel;
             int x;
 
             if (CustomInput.BoolHeld(CustomInput.UserInput.Left))
+            {
                 x = -1;
+                transform.localScale = new Vector3 (Mathf.Abs(transform.localScale.x)*-1, transform.localScale.y, transform.localScale.z);
+            }
             else if (CustomInput.BoolHeld(CustomInput.UserInput.Right))
+            {
                 x = 1;
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
             else
+            {
                 x = 0;
+            }
             
             vel = new Vector2(x*speed*Time.deltaTime, rgdb.velocity.y);
             rgdb.velocity = vel;
