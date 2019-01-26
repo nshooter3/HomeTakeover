@@ -1,15 +1,17 @@
 ﻿namespace HomeTakeover.Enemies
 {
     using UnityEngine;
+    using HomeTakeover.Util;
+    using HomeTakeover.Character;
+    
 
     public abstract class Enemy : MonoBehaviour
     {
         public int maxHealth;
+        public float speed = 3f;
         public GameObject deathItem;
-        public GameObject player;
-        protected int health;
 
-        private bool inRange;
+        protected int health;
         private Vector3 vectorToTarget;
         private float angle;
         private Quaternion q;
@@ -23,14 +25,19 @@
 
         private void Update()
         {
+            Attack();
+            Run();
+          
         }
-        private void Target()
+
+        public void Target()
         {
-            vectorToTarget = player.transform - transform.position;
+            vectorToTarget = PlayerController.instance.gameObject.transform.position - transform.position;
             angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
             q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
         }
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.tag == "PlayerAttack")
@@ -39,7 +46,7 @@
                 if (health <= 0)
                     Die();
             }
-            if (other.gameObject.tag == "Player")
+            if (collision.gameObject.tag == "Player")
             {
                 //Melee
             }
