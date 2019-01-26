@@ -47,7 +47,7 @@
         */
         public void IsFacing()
         {
-            float angle = 10;
+            float angle = 45;
             if (Vector3.Angle(PlayerController.instance.gameObject.transform.forward, transform.position - PlayerController.instance.gameObject.transform.position) < angle)
             {
                 facing = true;
