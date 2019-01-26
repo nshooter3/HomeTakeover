@@ -567,6 +567,11 @@ PrefabInstance:
       propertyPath: layerMask.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 1952697957717543948, guid: ef0deb5480b7e2d4fa5e3fe14c3e298b,
+        type: 3}
+      propertyPath: throwForce
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef0deb5480b7e2d4fa5e3fe14c3e298b, type: 3}
 --- !u!1001 &2514682392940937531
@@ -650,6 +655,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8631096664532536237, guid: eed2b5207e0b64f409276fd50b394895,
+        type: 3}
+      propertyPath: m_Name
+      value: Main Camera
+      objectReference: {fileID: 0}
     - target: {fileID: 5262817006751212661, guid: eed2b5207e0b64f409276fd50b394895,
         type: 3}
       propertyPath: player
@@ -664,11 +674,6 @@ PrefabInstance:
         type: 3}
       propertyPath: maxDistanceFromPlayerCenter
       value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8631096664532536237, guid: eed2b5207e0b64f409276fd50b394895,
-        type: 3}
-      propertyPath: m_Name
-      value: Main Camera
       objectReference: {fileID: 0}
     - target: {fileID: 8631096664532536145, guid: eed2b5207e0b64f409276fd50b394895,
         type: 3}

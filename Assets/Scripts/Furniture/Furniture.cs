@@ -64,6 +64,8 @@
             transform.parent = handPivot;
             transform.localPosition = Vector2.zero;
             transform.localEulerAngles = Vector2.zero;
+            rgbd.velocity = Vector3.zero;
+            rgbd.angularVelocity = 0;
             hitbox.enabled = false;
         }
 

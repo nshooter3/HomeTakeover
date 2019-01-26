@@ -70,6 +70,11 @@
         public Furniture heldItem = null;
 
         /// <summary>
+        /// How much force to apply to thrown objects
+        /// </summary>
+        public float throwForce;
+
+        /// <summary>
         /// The player animator
         /// </summary>
         public Animator anim;
@@ -131,10 +136,26 @@
                 }
                 else
                 {
-                    heldItem = tempFurn;
-                    tempFurn.OnPickup(objectPivotPoint);
+                    Grab(tempFurn);
                 }
             }
+            if (CustomInput.BoolFreshPress(CustomInput.UserInput.Throw) && heldItem != null)
+            {
+                ThrowItem();
+            }
+        }
+
+        void Grab(Furniture tempFurn)
+        {
+            heldItem = tempFurn;
+            tempFurn.OnPickup(objectPivotPoint);
+        }
+
+        void ThrowItem()
+        {
+            Vector2 direction = new Vector2(reticule.transform.position.x - armHolderTransform.position.x, reticule.transform.position.y - armHolderTransform.position.y);
+            heldItem.OnThrow(armHolderTransform, direction, throwForce);
+            heldItem = null;
         }
 
         /// <summary>
