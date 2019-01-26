@@ -2,33 +2,83 @@
 {
     using UnityEngine;
     using HomeTakeover.Util;
+    using HomeTakeover.Furniture;
     using System.Collections.Generic;
 
     public class PlayerController : MonoBehaviour
     {
         private Rigidbody2D rgdb;
 
+        /// <summary>
+        /// How fast the player moves
+        /// </summary>
         public float speed;
+        /// <summary>
+        /// How much force the player jumps with
+        /// </summary>
         public float jumpspeed;
 
+        /// <summary>
+        /// Extra transforms on the edge of the player used to raycast down to detect whether or not we are grounded.
+        /// </summary>
         public Transform left, right;
         private List<Transform> raycastCheckPoints;
         private float raycastDistance = 0.1f;
+        /// <summary>
+        /// The layer mask used to check for the ground beneath the player
+        /// </summary>
+        public LayerMask groundCheckLayerMask;
 
+        /// <summary>
+        /// The reticule that follows the mouse. Also used as the origin for an OverlapCircle check when attempting to grab items.
+        /// </summary>
         public Transform reticule;
+        /// <summary>
+        /// Empty transform at the end of the arm sprite
+        /// </summary>
         public Transform defaultArmEndPos;
+        /// <summary>
+        /// Holds the pivot point that the arm rotates around
+        /// </summary>
         public Transform armHolderTransform;
+        /// <summary>
+        /// The visual component of the arm sprite
+        /// </summary>
         public SpriteRenderer armSprite;
+        /// <summary>
+        /// The initial size of the arm, used to reset it after a stretch;
+        /// </summary>
         Vector2 armSpriteInitSize;
 
+        /// <summary>
+        /// The transform that picked up objects get parented to.
+        /// </summary>
+        public Transform objectPivotPoint;
+
+        /// <summary>
+        /// The radius used to check for grabbable objects around the player's hand when they try to grab things.
+        /// </summary>
+        public float armGrabRadius;
+        /// <summary>
+        /// The layer mask used to check for grabbable furniture when the player clicks
+        /// </summary>
+        public LayerMask furnitureGrabLayerMask;
+
+        /// <summary>
+        /// The furniture item currently in the player's hand. Null if empty
+        /// </summary>
+        public Furniture heldItem = null;
+
+        /// <summary>
+        /// The player animator
+        /// </summary>
         public Animator anim;
 
         private float armReturnTimer = 0.0f, maxArmReturnTimer = 0.25f;
 
-        public LayerMask layerMask;
-
-        private bool grounded = true;
-
+        /// <summary>
+        /// Singleton
+        /// </summary>
         public static PlayerController instance;
 
         private void Awake()
@@ -71,10 +121,47 @@
                 Vector3 pos = Vector3.Lerp(defaultArmEndPos.transform.position, reticule.transform.position, armReturnTimer / maxArmReturnTimer);
                 UpdateArmStretch(armSprite, armHolderTransform.position, pos);
             }
-            if (CustomInput.BoolFreshPress(CustomInput.UserInput.Attack))
+            if (CustomInput.BoolFreshPress(CustomInput.UserInput.Attack) && heldItem == null)
             {
                 armReturnTimer = maxArmReturnTimer;
+                Furniture tempFurn = AttemptToGrabFurniture();
+                if (tempFurn == null)
+                {
+                    ArmAttack();
+                }
+                else
+                {
+                    heldItem = tempFurn;
+                    tempFurn.OnPickup(objectPivotPoint);
+                }
             }
+        }
+
+        /// <summary>
+        /// When the player clicks, performs a radial raycast around the reticule and populates a list of furniture that falls within it.
+        /// Returns the item closest to the reticule
+        /// </summary>
+        /// <returns> The closest furniture item in range of the player's reticule </returns>
+        private Furniture AttemptToGrabFurniture()
+        {
+            Furniture furn = null;
+            float closestDistance = float.MaxValue;
+            Collider2D[] cols = Physics2D.OverlapCircleAll(reticule.transform.position, armGrabRadius, furnitureGrabLayerMask);
+            foreach (Collider2D col in cols)
+            {
+                if (Vector2.Distance(col.transform.position, reticule.transform.position) < closestDistance) {
+                    furn = col.GetComponent<Furniture>();
+                }
+            }
+            return furn;
+        }
+
+        /// <summary>
+        /// If the player fails to grab any furniture, perform a weak punch attack.
+        /// </summary>
+        private void ArmAttack()
+        {
+            //TODO: weak attack
         }
 
         void UpdateArmRotation()
@@ -112,7 +199,7 @@
             RaycastHit2D hit;
             foreach (Transform trans in raycastCheckPoints)
             {
-                hit = Physics2D.Raycast(trans.position, trans.TransformDirection(Vector2.down), raycastDistance, layerMask);
+                hit = Physics2D.Raycast(trans.position, trans.TransformDirection(Vector2.down), raycastDistance, groundCheckLayerMask);
                 if (hit.collider != null)
                 {
                     return true;

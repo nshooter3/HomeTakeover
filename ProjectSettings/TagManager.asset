@@ -14,10 +14,10 @@ TagManager:
   - 
   - 
   - ground
-  - 
-  - 
-  - 
-  - 
+  - player
+  - enemies
+  - furniture
+  - furnitureAttack
   - 
   - 
   - 
