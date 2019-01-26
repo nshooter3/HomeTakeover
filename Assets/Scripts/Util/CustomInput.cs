@@ -9,7 +9,7 @@
     {
 
         [SerializeField]
-        private bool UseConfigFile;
+        private bool UseConfigFile = false;
 
         /// <summary> This is used to define user inputs, changed to add or remove buttons. </summary>
         public enum UserInput
