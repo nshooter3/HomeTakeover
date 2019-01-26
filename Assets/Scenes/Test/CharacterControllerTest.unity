@@ -1052,6 +1052,11 @@ PrefabInstance:
       propertyPath: playerCenter
       value: 
       objectReference: {fileID: 1616693685}
+    - target: {fileID: 5262817006751212661, guid: eed2b5207e0b64f409276fd50b394895,
+        type: 3}
+      propertyPath: maxDistanceFromPlayerCenter
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 8631096664532536237, guid: eed2b5207e0b64f409276fd50b394895,
         type: 3}
       propertyPath: m_Name
