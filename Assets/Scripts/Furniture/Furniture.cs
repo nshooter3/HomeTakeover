@@ -1,6 +1,7 @@
 ﻿namespace HomeTakeover.Furniture
 {
     using UnityEngine;
+    using HomeTakeover.Character;
 
     public abstract class Furniture : MonoBehaviour
     {
@@ -37,6 +38,8 @@
         public BoxCollider2D hurtbox;
 
         private Rigidbody2D rgbd;
+        private Vector3 originalScale;
+        private bool isScaled;
 
         private void Awake()
         {
@@ -52,6 +55,7 @@
             durability = maxDurability;
             hitbox.enabled = true;
             hurtbox.enabled = false;
+            originalScale = transform.localScale;
         }
 
         /// <summary>
@@ -109,6 +113,22 @@
         public void OnGetRepaired(int healAmount)
         {
             durability = Mathf.Min(maxDurability, durability + healAmount);
+        }
+
+        void OnMouseOver()
+        {
+            if (!isScaled && PlayerController.instance.heldItem == null)
+            {
+                originalScale = transform.localScale;
+                transform.localScale = originalScale * 1.2f;
+                isScaled = true;
+            }
+        }
+
+        void OnMouseExit()
+        {
+            transform.localScale = originalScale;
+            isScaled = false;
         }
 
         /// <summary>
