@@ -21,6 +21,8 @@
         public SpriteRenderer armSprite;
         Vector2 armSpriteInitSize;
 
+        public Animator anim;
+
         private float armReturnTimer = 0.0f, maxArmReturnTimer = 0.25f;
 
         public LayerMask layerMask;
@@ -38,27 +40,22 @@
             armSpriteInitSize = armSprite.size;
         }
 
-        /// <summary> True if the player is pressing a movement key. </summary>
-        private bool Moving
-        {
-            get
-            {
-                return CustomInput.BoolHeld(CustomInput.UserInput.Left) ||
-                    CustomInput.BoolHeld(CustomInput.UserInput.Right) ||
-                    CustomInput.BoolHeld(CustomInput.UserInput.Up) ||
-                    CustomInput.BoolHeld(CustomInput.UserInput.Down);
-            }
-        }
-
         // Update is called once per frame
         void Update()
         {
             Move();
+            UpdateArm();
+            UpdateAnimations();
+        }
+
+        void UpdateArm()
+        {
             UpdateArmRotation();
             if (armReturnTimer > 0)
             {
                 armReturnTimer = Mathf.Max(0, armReturnTimer -= Time.deltaTime);
-                UpdateArmStrech(Vector3.Lerp(defaultArmEndPos.transform.position, reticule.transform.position, armReturnTimer / maxArmReturnTimer));
+                Vector3 pos = Vector3.Lerp(defaultArmEndPos.transform.position, reticule.transform.position, armReturnTimer / maxArmReturnTimer);
+                UpdateArmStretch(armSprite, armHolderTransform.position, pos);
             }
             if (CustomInput.BoolFreshPress(CustomInput.UserInput.Attack))
             {
@@ -76,12 +73,7 @@
             armHolderTransform.transform.rotation = Quaternion.Euler(0, 0, AngleDeg + 90);
         }
 
-        void UpdateArmStrech(Vector2 pos)
-        {
-            StrechSprite(armSprite, armHolderTransform.position, pos);
-        }
-
-        public void StrechSprite(SpriteRenderer sprite, Vector2 initialPosition, Vector2 finalPosition)
+        public void UpdateArmStretch(SpriteRenderer sprite, Vector2 initialPosition, Vector2 finalPosition)
         {
             float distance = Vector2.Distance(initialPosition, finalPosition);
             float yScale = distance * 1.6f;
@@ -92,6 +84,13 @@
                 ypos = 0;
             }
             sprite.transform.localPosition = new Vector3(sprite.transform.localPosition.x, ypos, sprite.transform.localPosition.z);
+        }
+
+        /// <summary> True if the player is pressing a movement key. </summary>
+        private bool IsMoving()
+        {
+            return CustomInput.BoolHeld(CustomInput.UserInput.Left) ||
+                    CustomInput.BoolHeld(CustomInput.UserInput.Right);
         }
 
         private bool IsGrounded()
@@ -106,6 +105,12 @@
                 }
             }
             return false;
+        }
+
+        private void UpdateAnimations()
+        {
+            anim.SetBool("IsMoving", IsMoving());
+            anim.SetBool("IsGrounded", IsGrounded());
         }
 
         private void Move()
