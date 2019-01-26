@@ -23,6 +23,8 @@
         void Update()
         {
             FixedDistanceConstraint();
+            passingForce = Vector3.Lerp(passingForce, Vector3.zero, 1f);
+            
         }
 
         public void FixedDistanceConstraint()
@@ -49,17 +51,12 @@
         {
             if ( velocity.magnitude > 0.1f )
             {
-                passingForce = new Vector3(-1, 0, 0) * direction.x * 15;
-            }
-            else
-            {
-                passingForce = Vector3.Lerp(passingForce, Vector3.zero, 2f);
+                passingForce = new Vector3(-1, 0, 0) * direction.x * 25;
             }
         }
 
         void OnTriggerEnter2D(Collider2D collision)
         {
-            Debug.Log("Collision");
             Vector3 direction = collision.transform.position - transform.position;
             PassingForce(direction.normalized, direction.magnitude, collision.attachedRigidbody.velocity);
         }

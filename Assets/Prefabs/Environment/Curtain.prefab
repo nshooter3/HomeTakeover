@@ -193,8 +193,8 @@ MonoBehaviour:
   t2: {fileID: 3054340237550893932}
   distance: 0.05
   compensate1: 0.8
-  compensate2: 10
-  gravityCompensation: 3
+  compensate2: 9
+  gravityCompensation: 2.5
   usesGravity: 1
   passingForce: {x: 0, y: 0, z: 0}
 --- !u!58 &3054340236973926413
@@ -344,7 +344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   t1: {fileID: 3054340237292190506}
   t2: {fileID: 3054340236973926410}
-  distance: 0.05
+  distance: 0.08
   compensate1: 0
   compensate2: 10
   gravityCompensation: 3
@@ -573,10 +573,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   t1: {fileID: 3054340237550893932}
   t2: {fileID: 3054340236059634577}
-  distance: 0.05
+  distance: 0.25
   compensate1: 0.8
-  compensate2: 10
-  gravityCompensation: 3
+  compensate2: 8
+  gravityCompensation: 2
   usesGravity: 1
   passingForce: {x: 0, y: 0, z: 0}
 --- !u!58 &3054340237550893935
