@@ -11,7 +11,7 @@
     <Keyboard_Melee>Mouse0</Keyboard_Melee>
     <Keyboard_Shoot>Mouse1</Keyboard_Shoot>
     <Keyboard_Reload>R</Keyboard_Reload>
-    <Keyboard_Screech>Space</Keyboard_Screech>
+    <Keyboard_Jump>Space</Keyboard_Jump>
     <Keyboard_Pause>Escape</Keyboard_Pause>
     <Keyboard_Accept>Return</Keyboard_Accept>
     <Keyboard_Cancel>Backspace</Keyboard_Cancel>
@@ -26,7 +26,7 @@
     <Gamepad_Melee>Left Trigger</Gamepad_Melee>
     <Gamepad_Shoot>Right Trigger</Gamepad_Shoot>
     <Gamepad_Reload>X</Gamepad_Reload>
-    <Gamepad_Screech>Y</Gamepad_Screech>
+    <Gamepad_Jump>Y</Gamepad_Jump>
     <Gamepad_Pause>Start</Gamepad_Pause>
     <Gamepad_Accept>A</Gamepad_Accept>
     <Gamepad_Cancel>B</Gamepad_Cancel>
@@ -43,7 +43,7 @@
     <Keyboard_Melee>None</Keyboard_Melee>
     <Keyboard_Shoot>None</Keyboard_Shoot>
     <Keyboard_Reload>None</Keyboard_Reload>
-    <Keyboard_Screech>None</Keyboard_Screech>
+    <Keyboard_Jump>None</Keyboard_Jump>
     <Keyboard_Pause>None</Keyboard_Pause>
     <Keyboard_Accept>None</Keyboard_Accept>
     <Keyboard_Cancel>None</Keyboard_Cancel>
@@ -69,8 +69,8 @@
     </Gamepad_Shoot>
     <Gamepad_Reload>
     </Gamepad_Reload>
-    <Gamepad_Screech>
-    </Gamepad_Screech>
+    <Gamepad_Jump>
+    </Gamepad_Jump>
     <Gamepad_Pause>
     </Gamepad_Pause>
     <Gamepad_Accept>
@@ -90,7 +90,7 @@
     <Keyboard_Melee>None</Keyboard_Melee>
     <Keyboard_Shoot>None</Keyboard_Shoot>
     <Keyboard_Reload>None</Keyboard_Reload>
-    <Keyboard_Screech>None</Keyboard_Screech>
+    <Keyboard_Jump>None</Keyboard_Jump>
     <Keyboard_Pause>None</Keyboard_Pause>
     <Keyboard_Accept>None</Keyboard_Accept>
     <Keyboard_Cancel>None</Keyboard_Cancel>
@@ -116,8 +116,8 @@
     </Gamepad_Shoot>
     <Gamepad_Reload>
     </Gamepad_Reload>
-    <Gamepad_Screech>
-    </Gamepad_Screech>
+    <Gamepad_Jump>
+    </Gamepad_Jump>
     <Gamepad_Pause>
     </Gamepad_Pause>
     <Gamepad_Accept>
@@ -137,7 +137,7 @@
     <Keyboard_Melee>None</Keyboard_Melee>
     <Keyboard_Shoot>None</Keyboard_Shoot>
     <Keyboard_Reload>None</Keyboard_Reload>
-    <Keyboard_Screech>None</Keyboard_Screech>
+    <Keyboard_Jump>None</Keyboard_Jump>
     <Keyboard_Pause>None</Keyboard_Pause>
     <Keyboard_Accept>None</Keyboard_Accept>
     <Keyboard_Cancel>None</Keyboard_Cancel>
@@ -163,8 +163,8 @@
     </Gamepad_Shoot>
     <Gamepad_Reload>
     </Gamepad_Reload>
-    <Gamepad_Screech>
-    </Gamepad_Screech>
+    <Gamepad_Jump>
+    </Gamepad_Jump>
     <Gamepad_Pause>
     </Gamepad_Pause>
     <Gamepad_Accept>
@@ -184,7 +184,7 @@
     <Keyboard_Melee>None</Keyboard_Melee>
     <Keyboard_Shoot>None</Keyboard_Shoot>
     <Keyboard_Reload>None</Keyboard_Reload>
-    <Keyboard_Screech>None</Keyboard_Screech>
+    <Keyboard_Jump>None</Keyboard_Jump>
     <Keyboard_Pause>None</Keyboard_Pause>
     <Keyboard_Accept>None</Keyboard_Accept>
     <Keyboard_Cancel>None</Keyboard_Cancel>
@@ -210,8 +210,8 @@
     </Gamepad_Shoot>
     <Gamepad_Reload>
     </Gamepad_Reload>
-    <Gamepad_Screech>
-    </Gamepad_Screech>
+    <Gamepad_Jump>
+    </Gamepad_Jump>
     <Gamepad_Pause>
     </Gamepad_Pause>
     <Gamepad_Accept>
@@ -231,7 +231,7 @@
     <Keyboard_Melee>None</Keyboard_Melee>
     <Keyboard_Shoot>None</Keyboard_Shoot>
     <Keyboard_Reload>None</Keyboard_Reload>
-    <Keyboard_Screech>None</Keyboard_Screech>
+    <Keyboard_Jump>None</Keyboard_Jump>
     <Keyboard_Pause>None</Keyboard_Pause>
     <Keyboard_Accept>None</Keyboard_Accept>
     <Keyboard_Cancel>None</Keyboard_Cancel>
@@ -257,8 +257,8 @@
     </Gamepad_Shoot>
     <Gamepad_Reload>
     </Gamepad_Reload>
-    <Gamepad_Screech>
-    </Gamepad_Screech>
+    <Gamepad_Jump>
+    </Gamepad_Jump>
     <Gamepad_Pause>
     </Gamepad_Pause>
     <Gamepad_Accept>
@@ -278,7 +278,7 @@
     <Keyboard_Melee>None</Keyboard_Melee>
     <Keyboard_Shoot>None</Keyboard_Shoot>
     <Keyboard_Reload>None</Keyboard_Reload>
-    <Keyboard_Screech>None</Keyboard_Screech>
+    <Keyboard_Jump>None</Keyboard_Jump>
     <Keyboard_Pause>None</Keyboard_Pause>
     <Keyboard_Accept>None</Keyboard_Accept>
     <Keyboard_Cancel>None</Keyboard_Cancel>
@@ -304,8 +304,8 @@
     </Gamepad_Shoot>
     <Gamepad_Reload>
     </Gamepad_Reload>
-    <Gamepad_Screech>
-    </Gamepad_Screech>
+    <Gamepad_Jump>
+    </Gamepad_Jump>
     <Gamepad_Pause>
     </Gamepad_Pause>
     <Gamepad_Accept>

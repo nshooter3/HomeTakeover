@@ -14,7 +14,7 @@
         /// <summary> This is used to define user inputs, changed to add or remove buttons. </summary>
         public enum UserInput
         {
-            Up, Down, Left, Right, LookUp, LookDown, LookLeft, LookRight, Melee, Shoot, Reload, Screech, Pause, Accept, Cancel
+            Up, Down, Left, Right, LookUp, LookDown, LookLeft, LookRight, Melee, Shoot, Reload, Jump, Pause, Accept, Cancel
         }
 
         /// <summary> The file to save the bindings to. </summary>
@@ -33,7 +33,7 @@
             rawSign[(int)UserInput.Melee] = 1;
             rawSign[(int)UserInput.Shoot] = 1;
             rawSign[(int)UserInput.Reload] = 1;
-            rawSign[(int)UserInput.Screech] = 1;
+            rawSign[(int)UserInput.Jump] = 1;
             rawSign[(int)UserInput.Pause] = 1;
             rawSign[(int)UserInput.Accept] = 1;
             rawSign[(int)UserInput.Cancel] = 1;
@@ -60,7 +60,7 @@
             keyboard[(int)UserInput.Melee, 0] = KeyCode.Mouse0;
             keyboard[(int)UserInput.Shoot, 0] = KeyCode.Mouse1;
             keyboard[(int)UserInput.Reload, 0] = KeyCode.R;
-            keyboard[(int)UserInput.Screech, 0] = KeyCode.Space;
+            keyboard[(int)UserInput.Jump, 0] = KeyCode.Space;
             keyboard[(int)UserInput.Pause, 0] = KeyCode.Escape;
             keyboard[(int)UserInput.Accept, 0] = KeyCode.Return;
             keyboard[(int)UserInput.Cancel, 0] = KeyCode.Backspace;
@@ -87,7 +87,7 @@
             gamepad[(int)UserInput.Melee, 0] = LEFT_TRIGGER;
             gamepad[(int)UserInput.Shoot, 0] = RIGHT_TRIGGER;
             gamepad[(int)UserInput.Reload, 0] = X;
-            gamepad[(int)UserInput.Screech, 0] = Y;
+            gamepad[(int)UserInput.Jump, 0] = Y;
             gamepad[(int)UserInput.Pause, 0] = START;
             gamepad[(int)UserInput.Accept, 0] = A;
             gamepad[(int)UserInput.Cancel, 0] = B;
