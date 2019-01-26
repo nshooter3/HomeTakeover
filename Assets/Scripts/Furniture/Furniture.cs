@@ -64,6 +64,8 @@
             transform.parent = handPivot;
             transform.localPosition = Vector2.zero;
             transform.localEulerAngles = Vector2.zero;
+            rgbd.velocity = Vector3.zero;
+            rgbd.angularVelocity = 0;
             hitbox.enabled = false;
         }
 
@@ -85,10 +87,10 @@
         /// <param name="dropCoordinates"> where to release the weapon </param>
         /// <param name="direction"> which direction to throw the weapon </param>
         /// <param name="magnitude"> how much force to throw the weapon with </param>
-        public void OnThrow(Transform dropCoordinates, Vector2 direction, float magnitude)
+        public void OnThrow(Transform dropCoordinates, Vector2 direction, float magnitude, Vector2 playerVelocity)
         {
             OnDrop(dropCoordinates);
-            rgbd.velocity = direction * magnitude;
+            rgbd.velocity = direction * magnitude + playerVelocity;
             hitbox.enabled = true;
         }
 

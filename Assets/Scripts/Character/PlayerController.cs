@@ -54,6 +54,7 @@
         /// The transform that picked up objects get parented to.
         /// </summary>
         public Transform objectPivotPoint;
+        private float initObjectPivotPointY;
 
         /// <summary>
         /// The radius used to check for grabbable objects around the player's hand when they try to grab things.
@@ -70,11 +71,16 @@
         public Furniture heldItem = null;
 
         /// <summary>
+        /// How much force to apply to thrown objects
+        /// </summary>
+        public float throwForce;
+
+        /// <summary>
         /// The player animator
         /// </summary>
         public Animator anim;
 
-        private float armReturnTimer = 0.0f, maxArmReturnTimer = 0.25f;
+        private float armReturnTimer = 0.0f, maxArmReturnTimer = 0.225f;
 
         /// <summary>
         /// Singleton
@@ -102,6 +108,7 @@
             raycastCheckPoints.Add(right);
 
             armSpriteInitSize = armSprite.size;
+            initObjectPivotPointY = objectPivotPoint.position.y;
         }
 
         // Update is called once per frame
@@ -131,10 +138,26 @@
                 }
                 else
                 {
-                    heldItem = tempFurn;
-                    tempFurn.OnPickup(objectPivotPoint);
+                    Grab(tempFurn);
                 }
             }
+            if (CustomInput.BoolFreshPress(CustomInput.UserInput.Throw) && heldItem != null)
+            {
+                ThrowItem();
+            }
+        }
+
+        void Grab(Furniture tempFurn)
+        {
+            heldItem = tempFurn;
+            tempFurn.OnPickup(objectPivotPoint);
+        }
+
+        void ThrowItem()
+        {
+            Vector2 direction = new Vector2(reticule.transform.position.x - armHolderTransform.position.x, reticule.transform.position.y - armHolderTransform.position.y);
+            heldItem.OnThrow(armHolderTransform, direction, throwForce, rgdb.velocity);
+            heldItem = null;
         }
 
         /// <summary>
@@ -185,6 +208,7 @@
                 ypos = 0;
             }
             sprite.transform.localPosition = new Vector3(sprite.transform.localPosition.x, ypos, sprite.transform.localPosition.z);
+            objectPivotPoint.transform.localPosition = new Vector3(0, (initObjectPivotPointY + distance) *-1, 0);
         }
 
         /// <summary> True if the player is pressing a movement key. </summary>
