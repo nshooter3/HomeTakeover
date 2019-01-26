@@ -19,6 +19,7 @@
         public Transform defaultArmEndPos;
         public Transform armHolderTransform;
         public SpriteRenderer armSprite;
+        Vector2 armSpriteInitSize;
 
         private float armReturnTimer = 0.0f, maxArmReturnTimer = 0.25f;
 
@@ -33,6 +34,8 @@
             raycastCheckPoints.Add(left);
             raycastCheckPoints.Add(transform);
             raycastCheckPoints.Add(right);
+
+            armSpriteInitSize = armSprite.size;
         }
 
         /// <summary> True if the player is pressing a movement key. </summary>
@@ -55,12 +58,12 @@
             if (armReturnTimer > 0)
             {
                 armReturnTimer = Mathf.Max(0, armReturnTimer -= Time.deltaTime);
+                UpdateArmStrech(Vector3.Lerp(defaultArmEndPos.transform.position, reticule.transform.position, armReturnTimer / maxArmReturnTimer));
             }
             if (CustomInput.BoolFreshPress(CustomInput.UserInput.Attack))
             {
                 armReturnTimer = maxArmReturnTimer;
             }
-            UpdateArmStrech(Vector3.Lerp(defaultArmEndPos.transform.position, reticule.transform.position, armReturnTimer/ maxArmReturnTimer));
         }
 
         void UpdateArmRotation()
@@ -75,14 +78,20 @@
 
         void UpdateArmStrech(Vector2 pos)
         {
-            StrechSprite(armSprite.gameObject, armHolderTransform.position, pos);
+            StrechSprite(armSprite, armHolderTransform.position, pos);
         }
 
-        public void StrechSprite(GameObject sprite, Vector2 initialPosition, Vector2 finalPosition)
+        public void StrechSprite(SpriteRenderer sprite, Vector2 initialPosition, Vector2 finalPosition)
         {
-            Vector2 scale = new Vector2(1, 1);
-            scale.y = Vector2.Distance(initialPosition, finalPosition) * 1.6f;
-            sprite.transform.localScale = scale;
+            float distance = Vector2.Distance(initialPosition, finalPosition);
+            float yScale = distance * 1.6f;
+            sprite.size = new Vector2(armSpriteInitSize.x - 0.15f*(armReturnTimer / maxArmReturnTimer), armSpriteInitSize.y * yScale);
+            float ypos = Mathf.Lerp(0, -0.25f, armReturnTimer / maxArmReturnTimer);
+            if (distance <= 2.5f)
+            {
+                ypos = 0;
+            }
+            sprite.transform.localPosition = new Vector3(sprite.transform.localPosition.x, ypos, sprite.transform.localPosition.z);
         }
 
         private bool IsGrounded()
