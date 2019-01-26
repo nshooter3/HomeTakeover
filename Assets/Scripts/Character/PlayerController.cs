@@ -119,11 +119,19 @@
             int x;
 
             if (CustomInput.BoolHeld(CustomInput.UserInput.Left))
+            {
                 x = -1;
+                transform.localScale = new Vector3 (Mathf.Abs(transform.localScale.x)*-1, transform.localScale.y, transform.localScale.z);
+            }
             else if (CustomInput.BoolHeld(CustomInput.UserInput.Right))
+            {
                 x = 1;
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
             else
+            {
                 x = 0;
+            }
             
             vel = new Vector2(x*speed*Time.deltaTime, rgdb.velocity.y);
             rgdb.velocity = vel;
