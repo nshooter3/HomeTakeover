@@ -15,6 +15,7 @@
                 textureImporter.maxTextureSize = 512;
                 textureImporter.textureCompression = TextureImporterCompression.Uncompressed;
                 textureImporter.filterMode = FilterMode.Point;
+				textureImporter.alphaIsTransparency = true;
             }
         }
     }
