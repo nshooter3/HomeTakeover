@@ -27,8 +27,8 @@
 
         private void Update()
         {
-            Attack();
-            Run(); 
+            Run();
+            Attack();  
         }
 
         /*
