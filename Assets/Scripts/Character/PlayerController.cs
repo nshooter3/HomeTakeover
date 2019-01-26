@@ -15,6 +15,9 @@
         private List<Transform> raycastCheckPoints;
         private float raycastDistance = 0.1f;
 
+        public Transform reticule;
+        public GameObject arm;
+
         public LayerMask layerMask;
 
         private bool grounded = true;
@@ -44,6 +47,17 @@
         void Update()
         {
             Move();
+            UpdateArmRotation();
+        }
+
+        void UpdateArmRotation()
+        {
+            // Get Angle in Radians
+            float AngleRad = Mathf.Atan2(reticule.transform.position.y - arm.transform.position.y, reticule.transform.position.x - arm.transform.position.x);
+            // Get Angle in Degrees
+            float AngleDeg = (180 / Mathf.PI) * AngleRad;
+            // Rotate Object
+            arm.transform.rotation = Quaternion.Euler(0, 0, AngleDeg + 90);
         }
 
         private bool IsGrounded()
