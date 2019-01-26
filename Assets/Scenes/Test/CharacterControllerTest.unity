@@ -631,14 +631,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
-  speed: 1
+  speed: 4
   deathItem: {fileID: 0}
+  facing: 0
   rgbd2d: {fileID: 1969453491}
   layer:
     serializedVersion: 2
     m_Bits: 0
   flipTime: 1
-  enemyAttackRange: 0.5
+  enemyAttackRange: 2
   inRange: 0
 --- !u!50 &1969453491 stripped
 Rigidbody2D:

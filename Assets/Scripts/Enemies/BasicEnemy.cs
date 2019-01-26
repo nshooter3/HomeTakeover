@@ -8,6 +8,7 @@
         public LayerMask layer;
         public float flipTime;
         public float enemyAttackRange = 2f;
+        
         public bool inRange = false;
 
         private float timer;
@@ -19,7 +20,6 @@
             timer = 0;
             right = false;
         }
-
 
         protected override void Attack()
         {
@@ -38,18 +38,21 @@
         }
         private void Flip()
         {
-            right = !right;
-            speed = -speed;
+            if (!facing)
+            {
+                right = !right;
+                speed = -speed;
 
-            if (right)
-            {
-                this.transform.rotation = Quaternion.Euler(0, 0, 0);
-                speed = speed * Mathf.Sign(speed);
-            }
-            else
-            {
-                this.transform.rotation = Quaternion.Euler(0, 180, 0);
-                speed = speed * -Mathf.Sign(speed);
+                if (right)
+                {
+                    this.transform.rotation = Quaternion.Euler(0, 0, 0);
+                    speed = speed * Mathf.Sign(speed);
+                }
+                else
+                {
+                    this.transform.rotation = Quaternion.Euler(0, 180, 0);
+                    speed = speed * -Mathf.Sign(speed);
+                }
             }
         }
         protected override void Run()
