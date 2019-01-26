@@ -156,7 +156,7 @@
         void ThrowItem()
         {
             Vector2 direction = new Vector2(reticule.transform.position.x - armHolderTransform.position.x, reticule.transform.position.y - armHolderTransform.position.y);
-            heldItem.OnThrow(armHolderTransform, direction, throwForce);
+            heldItem.OnThrow(armHolderTransform, direction, throwForce, rgdb.velocity);
             heldItem = null;
         }
 

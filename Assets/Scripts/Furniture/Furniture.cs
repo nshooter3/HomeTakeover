@@ -87,10 +87,10 @@
         /// <param name="dropCoordinates"> where to release the weapon </param>
         /// <param name="direction"> which direction to throw the weapon </param>
         /// <param name="magnitude"> how much force to throw the weapon with </param>
-        public void OnThrow(Transform dropCoordinates, Vector2 direction, float magnitude)
+        public void OnThrow(Transform dropCoordinates, Vector2 direction, float magnitude, Vector2 playerVelocity)
         {
             OnDrop(dropCoordinates);
-            rgbd.velocity = direction * magnitude;
+            rgbd.velocity = direction * magnitude + playerVelocity;
             hitbox.enabled = true;
         }
 
