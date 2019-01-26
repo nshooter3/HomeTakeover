@@ -5,11 +5,17 @@
     public class BasicEnemy : Enemy
     {
         public Rigidbody2D rgbd2d;
-        public LayerMask layer;
+
+        //Attack Distance 
         public float flipTime;
+
+        //Attack Distance 
         public float enemyAttackRange = 2f;
-        
+
+        //Player is in Range
         public bool inRange = false;
+
+
 
         private float timer;
         private bool right;
@@ -21,6 +27,9 @@
             right = false;
         }
 
+        /*
+        Checks a circle collider for player Tag to confimr if player is in Range 
+        */
         protected override void Attack()
         {
              Vector2 v2 = this.gameObject.transform.position;
@@ -36,6 +45,9 @@
                     inRange = false;
                 }
         }
+        /*
+        Method to flip the sprite
+        */
         private void Flip()
         {
             if (!facing)
@@ -55,6 +67,9 @@
                 }
             }
         }
+        /*
+        Base on the flip time the enemy will either flip or target the player
+        */
         protected override void Run()
         {
             if((timer += Time.deltaTime) > flipTime )
@@ -63,6 +78,7 @@
                 {
                     timer = 0;
                     this.Target();
+                    //shoot
                 }
                 else
                 {
