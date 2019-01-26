@@ -91,7 +91,8 @@
         {
             float distance = Vector2.Distance(initialPosition, finalPosition);
             float yScale = distance * 1.6f;
-            sprite.size = new Vector2(armSpriteInitSize.x - 0.15f * (armReturnTimer / maxArmReturnTimer), armSpriteInitSize.y * yScale);
+            sprite.size = new Vector2(armSpriteInitSize.x - 0.15f*(armReturnTimer / maxArmReturnTimer), armSpriteInitSize.y * yScale);
+
             float ypos = Mathf.Lerp(0, -0.25f, armReturnTimer / maxArmReturnTimer);
             if (distance <= 2.5f)
             {
@@ -135,7 +136,7 @@
             if (CustomInput.BoolHeld(CustomInput.UserInput.Left))
             {
                 x = -1;
-                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * -1, transform.localScale.y, transform.localScale.z);
+                transform.localScale = new Vector3 (Mathf.Abs(transform.localScale.x)*-1, transform.localScale.y, transform.localScale.z);
             }
             else if (CustomInput.BoolHeld(CustomInput.UserInput.Right))
             {
@@ -146,8 +147,9 @@
             {
                 x = 0;
             }
+            
+            vel = new Vector2(x*speed*Time.deltaTime, rgdb.velocity.y);
 
-            vel = new Vector2(x * speed * Time.deltaTime, rgdb.velocity.y);
             rgdb.velocity = vel;
 
             if (CustomInput.BoolFreshPress(CustomInput.UserInput.Jump) && IsGrounded())
