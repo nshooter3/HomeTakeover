@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4419010809772478135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4419010809772478133}
+  - component: {fileID: 4419010809772478134}
+  m_Layer: 0
+  m_Name: SoundPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4419010809772478133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4419010809772478135}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.3589625, y: -2.3410826, z: 0.55137336}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4419010809772478134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4419010809772478135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98301ba03c9b32bd1a7ef6f496ecd13e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundPools:
+  - {fileID: 384680650791419799, guid: 77a0d45164ac45cde9924e66e4b79903, type: 3}
+  - {fileID: 384680650791419799, guid: adba4d6a9579fa9e195fe5c597e943bc, type: 3}
+  - {fileID: 384680650791419799, guid: 38f5761e6d553135996e4b746220e028, type: 3}
+  - {fileID: 384680650791419799, guid: ee677811b2f74f970bde574cc077bf98, type: 3}
+  - {fileID: 384680650791419799, guid: 244881568c77cac2783a79d8d98c1187, type: 3}
+  - {fileID: 384680650791419799, guid: 540dab068fc406012ab2c4ec9618100c, type: 3}
+  - {fileID: 384680650791419799, guid: 89d89798988ae9650949c33faa1d5c8d, type: 3}
+  - {fileID: 384680650791419799, guid: ef596a231b6e588f6aeb69905ce099eb, type: 3}
+  - {fileID: 384680650791419799, guid: 6ee44df6b50cd2f7cb20426812d4678f, type: 3}
+  - {fileID: 384680650791419799, guid: 9a14df250084970c39c90c757605f195, type: 3}
+  - {fileID: 384680650791419799, guid: 813bf9e098b821466a68609e669a6ceb, type: 3}
+  - {fileID: 384680650791419799, guid: 27dc1ee8e5bc2260096de73d935905e5, type: 3}
+  - {fileID: 384680650791419799, guid: 7fcfa3f16ea71ef069b40edaf2b6e2c9, type: 3}
+  - {fileID: 384680650791419799, guid: 256db75d799f9741cbb2dac98a534356, type: 3}
+  - {fileID: 384680650791419799, guid: 6fa83e6edc23c88a79b5774651d5bb18, type: 3}
+  - {fileID: 384680650791419799, guid: b168e0a36dfef38b8a76a414fcbfcea5, type: 3}
+  - {fileID: 384680650791419799, guid: bdb03ccfb78b62b1d90e06a5cb019578, type: 3}
+  - {fileID: 384680650791419799, guid: d774165084f713fd29df10ea0324b52e, type: 3}
+  - {fileID: 384680650791419799, guid: b2980edffb3b19e658e303bb1798cca5, type: 3}
+  - {fileID: 384680650791419799, guid: 2174bf6b019383057b250c7903d8a742, type: 3}
+  soundPoolSizes: 0300000003000000030000000300000003000000030000000300000003000000030000000300000003000000030000000300000003000000030000000300000003000000030000000300000003000000
