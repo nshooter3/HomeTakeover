@@ -107,7 +107,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.64}
+  m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
 --- !u!50 &508601375
 Rigidbody2D:
@@ -142,13 +142,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e918e35f3f4e434fad00a1a522108de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 3
   speed: 3
   deathItem: {fileID: 0}
   facing: 0
   rgbd2d: {fileID: 508601375}
-  flipTime: 1
-  enemyAttackRange: 2
+  flipTime: 1.5
+  enemyAttackRange: 1.5
   inRange: 0
 --- !u!1 &6043410125723710057
 GameObject:
