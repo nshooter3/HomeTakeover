@@ -2,6 +2,7 @@
 {
     using UnityEngine;
     using HomeTakeover.Character;
+    using SpriteGlow;
 
     public abstract class Furniture : MonoBehaviour
     {
@@ -38,6 +39,7 @@
         public BoxCollider2D hurtbox;
 
         private Rigidbody2D rgbd;
+        private Transform spriteTransform;
         private Vector3 originalScale;
         private bool isScaled;
 
@@ -55,7 +57,8 @@
             durability = maxDurability;
             hitbox.enabled = true;
             hurtbox.enabled = false;
-            originalScale = transform.localScale;
+            spriteTransform = gameObject.GetComponentInChildren<SpriteRenderer>().transform;
+            originalScale = spriteTransform.localScale;
         }
 
         /// <summary>
@@ -119,15 +122,17 @@
         {
             if (!isScaled && PlayerController.instance.heldItem == null)
             {
-                originalScale = transform.localScale;
-                transform.localScale = originalScale * 1.2f;
+                originalScale = spriteTransform.localScale;
+                spriteTransform.localScale = originalScale * 1.2f;
+                spriteTransform.gameObject.GetComponent<SpriteGlowEffect>().OutlineWidth = 2;
                 isScaled = true;
             }
         }
 
         void OnMouseExit()
         {
-            transform.localScale = originalScale;
+            spriteTransform.localScale = originalScale;
+            spriteTransform.gameObject.GetComponent<SpriteGlowEffect>().OutlineWidth = 0;
             isScaled = false;
         }
 

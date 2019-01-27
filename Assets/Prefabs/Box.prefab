@@ -4826,6 +4826,7 @@ GameObject:
   - component: {fileID: 1147513168}
   - component: {fileID: 1147513169}
   - component: {fileID: 4000803099118976818}
+  - component: {fileID: 1183819725322638955}
   m_Layer: 12
   m_Name: HurtBox
   m_TagString: Untagged
@@ -4890,7 +4891,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4936,6 +4937,24 @@ MonoBehaviour:
   damage: 10
   stun: 0
   attackId: 0
+--- !u!114 &1183819725322638955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147513166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 0, g: 0.37662363, b: 1, a: 1}
+  glowBrightness: 4.64
+  outlineWidth: 0
+  alphaThreshold: 0.438
+  drawOutside: 1
+  enableInstancing: 0
 --- !u!1 &2514682394446613107
 GameObject:
   m_ObjectHideFlags: 0
