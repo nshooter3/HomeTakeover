@@ -3,6 +3,7 @@
     using UnityEngine;
     using HomeTakeover.Util;
     using HomeTakeover.Character;
+    using UI;
     
 
     public abstract class Enemy : MonoBehaviour
@@ -11,6 +12,7 @@
         public float speed = 3f;
         public GameObject deathItem;
         public bool facing = false;
+        public EnemyHealthBar healthBar;
 
         protected int health;
 
@@ -24,13 +26,14 @@
         private void Start()
         {
             health = maxHealth;
+            this.healthBar.Percent = 1;
             Init();
         }
 
         private void Update()
         {
             Run();
-            Attack();  
+            Attack();
         }
 
         /*
@@ -66,6 +69,10 @@
                 if (attackID != collision.gameObject.GetComponent<DamageDealer>().attackId)
                 {
                     health--;
+                    float percent = (this.health / (float)this.maxHealth);
+                    if (percent < 0)
+                        percent = 0;
+                    this.healthBar.Percent = percent;
                     attackID = collision.gameObject.GetComponent<DamageDealer>().attackId;
 
                 }
