@@ -4892,6 +4892,51 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &334079181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 334079183}
+  - component: {fileID: 334079182}
+  m_Layer: 0
+  m_Name: Spawner (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &334079182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334079181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a494aa2176329443ba734fe271ec15e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  spawnOnStart: 0
+--- !u!4 &334079183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334079181}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.07, y: 0.54, z: 0.046875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &398070142 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1477804740279626457, guid: eed2b5207e0b64f409276fd50b394895,
@@ -5053,11 +5098,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 5262817006751212661, guid: eed2b5207e0b64f409276fd50b394895,
-        type: 3}
-      propertyPath: playerCenter
-      value: 
-      objectReference: {fileID: 1780581659}
     - target: {fileID: 8631096664532536145, guid: eed2b5207e0b64f409276fd50b394895,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5116,6 +5156,11 @@ PrefabInstance:
     - target: {fileID: 1676755989474424593, guid: eed2b5207e0b64f409276fd50b394895,
         type: 3}
       propertyPath: target
+      value: 
+      objectReference: {fileID: 1780581659}
+    - target: {fileID: 5262817006751212661, guid: eed2b5207e0b64f409276fd50b394895,
+        type: 3}
+      propertyPath: playerCenter
       value: 
       objectReference: {fileID: 1780581659}
     m_RemovedComponents: []
@@ -5206,6 +5251,7 @@ GameObject:
   - component: {fileID: 611270773}
   - component: {fileID: 611270772}
   - component: {fileID: 611270771}
+  - component: {fileID: 611270775}
   m_Layer: 0
   m_Name: WaveController
   m_TagString: Untagged
@@ -5258,13 +5304,20 @@ MonoBehaviour:
   pools:
   - {fileID: 611270772}
   - {fileID: 611270771}
-  spawners: []
-  furnitureSpawners: []
+  - {fileID: 611270775}
+  spawners:
+  - {fileID: 1661572574}
+  - {fileID: 1284016266}
+  - {fileID: 334079182}
+  furnitureSpawners:
+  - {fileID: 2073226560}
+  - {fileID: 1952693463}
+  - {fileID: 1482656924}
   waves:
   - {fileID: 3991030555615223454, guid: fae37ab047c9c234db25c43a03167ab0, type: 3}
   timeBetweenWaves: 60
   timeBetweenStress: 1
-  timeBetweenFurniture: 0
+  timeBetweenFurniture: 30
   stress: 0
 --- !u!4 &611270774
 Transform:
@@ -5280,6 +5333,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &611270775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611270770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 168e91412ae8a4a42bf31c6414a4ff94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPools:
+  - {fileID: 3904003871282447375, guid: 9b7f95a0c2ad47b4787afff794abf26f, type: 3}
+  - {fileID: 2989395647937392175, guid: 4bccd7e18c4eacc4eaa59ea5f86f244d, type: 3}
+  - {fileID: 4829832695691358179, guid: c202082ce11f84142b401c46a0f2e3a4, type: 3}
+  bulletPoolSizes: 0a0000000a0000000a000000
 --- !u!1 &1021958699
 GameObject:
   m_ObjectHideFlags: 0
@@ -5326,6 +5396,51 @@ Transform:
   - {fileID: 1505328557}
   m_Father: {fileID: 0}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1284016265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1284016267}
+  - component: {fileID: 1284016266}
+  m_Layer: 0
+  m_Name: Spawner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1284016266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284016265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a494aa2176329443ba734fe271ec15e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  spawnOnStart: 0
+--- !u!4 &1284016267
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284016265}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.36, y: 1.35, z: 0.046875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1331350023
 GameObject:
@@ -5952,6 +6067,51 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1482656923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1482656925}
+  - component: {fileID: 1482656924}
+  m_Layer: 0
+  m_Name: furnitureSpawner (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1482656924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482656923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1724022661382b4fb2f22c0902e9cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  spawnOnStart: 0
+--- !u!4 &1482656925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482656923}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.77, y: 0.71, z: 0.11440121}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1485289494
 GameObject:
   m_ObjectHideFlags: 0
@@ -6895,3 +7055,93 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1769968881}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1952693462
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1952693464}
+  - component: {fileID: 1952693463}
+  m_Layer: 0
+  m_Name: furnitureSpawner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1952693463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952693462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1724022661382b4fb2f22c0902e9cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  spawnOnStart: 0
+--- !u!4 &1952693464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952693462}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.71, z: 0.11440121}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2073226559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2073226561}
+  - component: {fileID: 2073226560}
+  m_Layer: 0
+  m_Name: furnitureSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2073226560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073226559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1724022661382b4fb2f22c0902e9cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  spawnOnStart: 0
+--- !u!4 &2073226561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073226559}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.33, y: 0.71, z: 0.11440121}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
