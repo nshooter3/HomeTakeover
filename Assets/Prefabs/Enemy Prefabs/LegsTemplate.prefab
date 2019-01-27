@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 8844235635636504703}
   - component: {fileID: 8844235635636504700}
   - component: {fileID: 8844235635636504701}
-  m_Layer: 0
+  - component: {fileID: 2299940582986970057}
+  m_Layer: 10
   m_Name: LegsTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,14 +100,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.64}
+    oldSize: {x: 1, y: 2}
     newSize: {x: 0.32, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.64}
+  m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
 --- !u!50 &8844235635636504701
 Rigidbody2D:
@@ -129,6 +130,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2299940582986970057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8844235635636504672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e918e35f3f4e434fad00a1a522108de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  speed: 3
+  deathItem: {fileID: 0}
+  facing: 0
+  rgbd2d: {fileID: 8844235635636504701}
+  flipTime: 1
+  enemyAttackRange: 2
+  inRange: 0
 --- !u!1 &8844235635712518097
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +161,7 @@ GameObject:
   - component: {fileID: 8844235635712518096}
   - component: {fileID: 8844235635712518062}
   - component: {fileID: 8844235635712518063}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SpringObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8844235636075715811}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LegPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8844235636624133114}
   - component: {fileID: 8844235636624133113}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -18,12 +18,13 @@
         private float angle;
         private Quaternion q;
         private int attackID = -1;
-   
+        private Transform playerPos;
 
         private void Start()
         {
             health = maxHealth;
             Init();
+            playerPos = PlayerController.instance.gameObject.transform;
         }
 
         private void Update()
@@ -43,7 +44,7 @@
         public void IsFacing()
         {
             float angle = 10;
-            if (Vector3.Angle(PlayerController.instance.gameObject.transform.forward, transform.position - PlayerController.instance.gameObject.transform.position) < angle)
+            if (Vector2.Angle(PlayerController.instance.gameObject.transform.forward, this.transform.position - PlayerController.instance.gameObject.transform.position) < angle)
             {
                 facing = true;
             }
@@ -63,8 +64,9 @@
                 
                 if (attackID != collision.gameObject.GetComponent<DamageDealer>().attackId)
                 {
-                    health--;
+                    health -= collision.gameObject.GetComponent<DamageDealer>().damage;
                     attackID = collision.gameObject.GetComponent<DamageDealer>().attackId;
+                    this.GetComponent<Rigidbody2D>().drag =  collision.gameObject.GetComponent<DamageDealer>().stun;
                 }
                 if (health <= 0)
                     Die();

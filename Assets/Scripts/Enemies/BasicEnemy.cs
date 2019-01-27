@@ -1,6 +1,7 @@
 ﻿namespace HomeTakeover.Enemies
 {
     using UnityEngine;
+    using HomeTakeover.Character;
 
     public class BasicEnemy : Enemy
     {
@@ -8,6 +9,9 @@
 
         //Attack Distance 
         public float flipTime;
+
+        //Attack Distance 
+        public float stunTime;
 
         //Attack Distance 
         public float enemyAttackRange = 2f;
@@ -32,7 +36,7 @@
         {
             Vector2 v2 = this.gameObject.transform.position;
             Collider2D[] hitColliders = Physics2D.OverlapCircleAll(v2, enemyAttackRange);
-            float playerDistance = Vector2.Distance((Vector2)this.gameObject.transform.position, v2);
+            float playerDistance = Vector2.Distance((Vector2)PlayerController.instance.transform.position, v2);
 
             if (playerDistance <= enemyAttackRange)
             {
@@ -49,8 +53,6 @@
         */
         private void Flip()
         {
-            if (!facing)
-            {
                 right = !right;
                 speed = -speed;
 
@@ -64,14 +66,20 @@
                     this.transform.rotation = Quaternion.Euler(0, 180, 0);
                     speed = speed * -Mathf.Sign(speed);
                 }
-            }
+           
         }
         /*
         Base on the flip time the enemy will either flip or target the player
         */
         protected override void Run()
         {
-            if((timer += Time.deltaTime) > flipTime )
+
+            if ((timer += Time.deltaTime) > stunTime)
+            {
+                this.GetComponent<Rigidbody2D>().drag = 0;
+            }
+
+            if ((timer += Time.deltaTime) > flipTime )
             {
                 if (inRange)
                 {
