@@ -3,6 +3,7 @@
     using UnityEngine;
     using HomeTakeover.Util;
     using HomeTakeover.Character;
+    using System;
 
     public class BlenderEnemy : Enemy
     {
@@ -17,19 +18,29 @@
         //Player is in Range
         public bool inRange = false;
 
-
+        //Shooting related variables
+        public float shotPower = 2f;
+        public float powerShotPower = 7f;
         public GameObject bullet;
-        int ammocount = 5;
+        public int ammocount = 3;
+        int initialAmmoCount;
 
+        public GameObject blenderSprite;
+
+        public ParticleSystem particles;
+
+        //If enemy should be using extra powerful horizontal shot.
+        public bool powerShot = false;
 
         private float timer;
-        private bool right;
+        [SerializeField] private bool right;
 
 
         protected override void Init()
         {
             timer = 0;
-            right = false;
+            right = true;
+            initialAmmoCount = ammocount;
         }
 
         /*
@@ -39,18 +50,23 @@
         {
             Vector2 v2 = this.gameObject.transform.position;
             Collider2D[] hitColliders = Physics2D.OverlapCircleAll(v2, enemyAttackRange);
-            float playerDistance = Vector2.Distance((Vector2)this.gameObject.transform.position, v2);
-
-
-
-            if (playerDistance <= enemyAttackRange)
+            float playerDistance = Math.Abs(Vector2.Distance((Vector2)PlayerController.instance.gameObject.transform.position, v2));
+            if(blenderSprite != null)
             {
-                inRange = true;
+                int shouldReverse = 1;
+                if (right) { shouldReverse *= -1; }
+                if (powerShot)
+                {
+                    blenderSprite.transform.rotation = Quaternion.Euler(0, 0, shouldReverse * 90);
+                }
+                else
+                {
+                    blenderSprite.transform.rotation = Quaternion.Euler(0, 0, 0);
+                }
             }
-            else
-            {
-                inRange = false;
-            }
+
+
+            bool inRange = playerDistance <= enemyAttackRange;
 
             if (inRange)
             {
@@ -63,7 +79,8 @@
                         Fire();
                         ammocount--;
                     }
-                    ammocount = 5;
+                    ammocount = initialAmmoCount;
+                    powerShot = UnityEngine.Random.Range(0, 10) > 5;
                 }
             }
         }
@@ -88,7 +105,9 @@
                     speed = speed * -Mathf.Sign(speed);
                 }
             }
+            powerShot = UnityEngine.Random.Range(0, 10) > 5;
         }
+
         /*
         Base on the flip time the enemy will either flip or target the player
         */
@@ -101,16 +120,80 @@
                 //shoot
             }
 
+            IsFacing();
+            if (facing)
+            {
+                if (!powerShot)
+                {
+                    rgbd2d.velocity = new Vector2(speed, rgbd2d.velocity.y);
+                }
+                else
+                {
+                    Vibrate();
+                }
+            }
+            else
+            {
+                timer += Time.deltaTime;
+                if(timer >= flipTime)
+                {
+                    Flip();
+                    timer = 0;
+                }
 
-            rgbd2d.velocity = new Vector2(speed, rgbd2d.velocity.y);
+            }
+            
         }
 
         //Fire Bullets!
         private void Fire()
         {
-            GameObject temp = GameObject.Instantiate<GameObject>(bullet);
-            temp.transform.position = this.gameObject.transform.position;
-            temp.GetComponent<Rigidbody2D>().velocity = new Vector2(1,1) * 8.0f;
+            float playerDistance = Math.Abs(Vector2.Distance((Vector2)PlayerController.instance.gameObject.transform.position, this.gameObject.transform.position));
+
+            int shouldReverse = -1;
+            if (right) { shouldReverse *= -1; }
+
+            if (powerShot)
+            {
+                GameObject temp = GameObject.Instantiate<GameObject>(bullet);
+                temp.transform.position = this.gameObject.transform.position;
+                temp.GetComponent<Rigidbody2D>().velocity = new Vector2(1 * shouldReverse, 0) * playerDistance * powerShotPower;
+            }
+            else
+            { 
+                GameObject temp = GameObject.Instantiate<GameObject>(bullet);
+                temp.transform.position = this.gameObject.transform.position;
+                temp.GetComponent<Rigidbody2D>().velocity = new Vector2(1 * shouldReverse,1) * playerDistance * shotPower;
+            }
+            particles.Emit(1);
+        }
+
+        public void IsFacing()
+        {
+            if(right && PlayerController.instance.gameObject.transform.position.x >= this.transform.position.x)
+            {
+                facing = true;
+            }
+            else if (!right && PlayerController.instance.gameObject.transform.position.x <= this.transform.position.x)
+            {
+                facing = true;
+            }
+            else
+            {
+                facing = false;
+            }
+        }
+
+        public void Vibrate()
+        {
+            if(blenderSprite != null)
+            {
+                blenderSprite.transform.localPosition = new Vector3(0 + UnityEngine.Random.Range(0,.3f), 0 + UnityEngine.Random.Range(0, .3f), 0);
+            }
+            else
+            {
+                blenderSprite.transform.localPosition = Vector3.zero;
+            }
         }
 
     }
