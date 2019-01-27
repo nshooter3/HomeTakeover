@@ -80,12 +80,22 @@
         /// </summary>
         public Animator anim;
 
+        /// <summary>
+        /// Timer for lerping arm to reach out to reticule when grabbing things
+        /// </summary>
         private float armReturnTimer = 0.0f, maxArmReturnTimer = 0.225f;
+
+        /// <summary>
+        /// Timer for lerping arm to match weapon melee attack timing
+        /// </summary>
+        public float armMeleeTimer, maxArmMeleeTimer;
 
         /// <summary>
         /// Singleton
         /// </summary>
         public static PlayerController instance;
+
+        private int AttackId = 0;
 
         private void Awake()
         {
@@ -128,23 +138,44 @@
                 Vector3 pos = Vector3.Lerp(defaultArmEndPos.transform.position, reticule.transform.position, armReturnTimer / maxArmReturnTimer);
                 UpdateArmStretch(armSprite, armHolderTransform.position, pos);
             }
-            if (CustomInput.BoolFreshPress(CustomInput.UserInput.Attack) && heldItem == null)
+            else if (armMeleeTimer > 0)
             {
-                armReturnTimer = maxArmReturnTimer;
-                Furniture tempFurn = AttemptToGrabFurniture();
-                if (tempFurn == null)
+                armMeleeTimer = Mathf.Max(0, armMeleeTimer -= Time.deltaTime);
+                Vector3 pos = Vector3.Lerp(defaultArmEndPos.transform.position, defaultArmEndPos.transform.position + new Vector3(0,1.5f,0), armMeleeTimer / maxArmMeleeTimer);
+                UpdateArmStretch(armSprite, armHolderTransform.position, pos);
+            }
+            if (CustomInput.BoolFreshPress(CustomInput.UserInput.Attack))
+            {
+                if (heldItem == null)
                 {
-                    ArmAttack();
+                    armReturnTimer = maxArmReturnTimer;
+                    Furniture tempFurn = AttemptToGrabFurniture();
+                    if (tempFurn == null)
+                    {
+                        ArmAttack();
+                    }
+                    else
+                    {
+                        Grab(tempFurn);
+                    }
                 }
                 else
                 {
-                    Grab(tempFurn);
+                    heldItem.OnUse();
                 }
             }
             if (CustomInput.BoolFreshPress(CustomInput.UserInput.Throw) && heldItem != null)
             {
                 ThrowItem();
             }
+        }
+
+        public void MeleeWeaponPunch(float duration)
+        {
+            armMeleeTimer = duration;
+            maxArmMeleeTimer = duration;
+
+            armMeleeTimer = maxArmMeleeTimer;
         }
 
         void Grab(Furniture tempFurn)
@@ -267,6 +298,11 @@
             }
 
             rgdb.velocity = vel;
+        }
+
+        public int RequestAttackId()
+        {
+            return AttackId++;
         }
     }
 }
