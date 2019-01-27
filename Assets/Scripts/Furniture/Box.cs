@@ -25,6 +25,11 @@
             attackPos = new Vector3(0, -1 * attackReach, 0);
             initScale = sprite.transform.localScale;
             initPos = sprite.transform.localPosition;
+            sprite = GetComponentInChildren<SpriteRenderer>();
+            if (punchDamage == null)
+            {
+                punchDamage = GetComponentInChildren<DamageDealer>();
+            }
         }
 
         public override void OnUse()

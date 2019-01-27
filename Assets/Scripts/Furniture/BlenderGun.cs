@@ -19,6 +19,10 @@
         void Start()
         {
             sprite = GetComponentInChildren<SpriteRenderer>();
+            if (throwDamage == null)
+            {
+                throwDamage = GetComponentInChildren<DamageDealer>();
+            }
         }
 
         // Update is called once per frame
