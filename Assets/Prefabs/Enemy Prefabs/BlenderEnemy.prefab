@@ -154,7 +154,7 @@ MonoBehaviour:
   referenceIndex: 0
   rgbd2d: {fileID: 508601375}
   flipTime: 1
-  enemyAttackRange: 2
+  enemyAttackRange: 3
   inRange: 0
   shotPower: 2
   powerShotPower: 7

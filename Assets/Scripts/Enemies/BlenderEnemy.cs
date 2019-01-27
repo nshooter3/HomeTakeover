@@ -21,7 +21,8 @@
         //Shooting related variables
         public float shotPower = 2f;
         public float powerShotPower = 7f;
-        public Furniture.FurniturePool.FurnitureTypes bullet;
+        public Furniture.FurniturePool.FurnitureTypes furniture;
+        public BulletPool.BulletTypes bullet;
         public int ammocount = 3;
         int initialAmmoCount;
 
@@ -165,7 +166,8 @@
             int shouldReverse = -1;
             if (right) { shouldReverse *= -1; }
 
-            GameObject temp = Furniture.FurniturePool.Instance.GetFurniture(bullet);
+             //  GameObject temp = Furniture.FurniturePool.Instance.GetFurniture(furniture);
+            GameObject temp = BulletPool.Instance.GetBullet(bullet);
             if (temp != null)
             {
                 temp.transform.position = this.gameObject.transform.position;
