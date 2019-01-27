@@ -5284,7 +5284,7 @@ MonoBehaviour:
   type: 3
   maxHealth: 3
   speed: 3
-  deathItem: 2
+  deathItem: 3
   facing: 0
   healthBar: {fileID: 9005400928069297264}
   impuluse: {x: 0, y: 0, z: 0}

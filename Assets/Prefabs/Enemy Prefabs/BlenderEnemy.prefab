@@ -147,7 +147,7 @@ MonoBehaviour:
   type: 0
   maxHealth: 3
   speed: 3
-  deathItem: 0
+  deathItem: 1
   facing: 0
   healthBar: {fileID: 818579505}
   impuluse: {x: 0, y: 0, z: 0}
@@ -755,46 +755,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: lengthInSec
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 1.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 3.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: ShapeModule.angle
-      value: 29.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: ShapeModule.radius.value
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 7521614005735667948, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -849,6 +809,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 3.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: ShapeModule.angle
+      value: 29.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06, type: 3}
