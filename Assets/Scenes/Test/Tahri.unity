@@ -200,6 +200,11 @@ PrefabInstance:
       propertyPath: layerMask.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 1952697957717543948, guid: ef0deb5480b7e2d4fa5e3fe14c3e298b,
+        type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef0deb5480b7e2d4fa5e3fe14c3e298b, type: 3}
 --- !u!4 &339676778 stripped
@@ -660,7 +665,7 @@ PrefabInstance:
     - target: {fileID: 2299940582986970057, guid: 25a31a66566885e4c83723e3c28e4c5b,
         type: 3}
       propertyPath: stunTime
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25a31a66566885e4c83723e3c28e4c5b, type: 3}

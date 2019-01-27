@@ -28,7 +28,7 @@
             stunTimer = 0;
             timer = 0;
             right = false;
-            vel = this.gameObject.GetComponent<Rigidbody2D>().velocity.y;
+            vel = speed;
         }
 
         /*
@@ -78,7 +78,7 @@
 
             if ((stunTimer += Time.deltaTime) > stunTime)
             {
-                this.rgbd2d.velocity.Set(0, vel);
+                speed = vel;
                 stunTimer = 0;
             }
 

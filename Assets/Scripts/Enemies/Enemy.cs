@@ -11,6 +11,7 @@
         public float speed = 3f;
         public GameObject deathItem;
         public bool facing = false;
+        public Vector2 impulse;
 
         protected int health;
 
@@ -31,7 +32,7 @@
         {
             Run();
             Attack();
-            Debug.Log("VELOCITY: " + this.gameObject.GetComponent<Rigidbody2D>().velocity);
+            IsFacing();
         }
 
         /*
@@ -48,10 +49,12 @@
             if (Vector2.Angle(PlayerController.instance.gameObject.transform.forward, this.transform.position - PlayerController.instance.gameObject.transform.position) < angle)
             {
                 facing = true;
+                impulse.Set(0.0f, 5.0f);
             }
             else
             {
                 facing = false;
+                impulse.Set(0.0f, -5.0f);
             }
         }
 
@@ -68,7 +71,9 @@
                 {
                     health -= collision.gameObject.GetComponent<DamageDealer>().damage;
                     attackID = collision.gameObject.GetComponent<DamageDealer>().attackId;
-                    this.gameObject.GetComponent<Rigidbody2D>().velocity.Set(0, this.gameObject.GetComponent<Rigidbody2D>().velocity.y * collision.gameObject.GetComponent<DamageDealer>().stun);
+                    speed *= collision.gameObject.GetComponent<DamageDealer>().stun;
+                    this.gameObject.GetComponent<Rigidbody2D>().AddForce(impulse, ForceMode2D.Impulse);
+                   
                 }
                 if (health <= 0)
                     Die();
