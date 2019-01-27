@@ -15,6 +15,7 @@
         public ChairState state = ChairState.roaming;
         //Attack Distance 
         public float chargeTime;
+        public float runTime;
         private float initialChargeTime;
 
         //Attack Distance 
@@ -27,7 +28,9 @@
 
         public GameObject chairSprite;
 
-        public ParticleSystem particles;
+        public ParticleSystem glowParticles;
+        public ParticleSystem dustParticles;
+        public ParticleSystem absorbParticles;
 
         public Animator AC;
 
@@ -59,7 +62,7 @@
                     break;
 
                 case ChairState.attacking:
-
+                    Attack();
                     break;
 
                 default:
@@ -71,12 +74,26 @@
         
         public void Charge()
         {
-            if(timer < chargeTime)
+            if (!absorbParticles.isPlaying) { absorbParticles.Play(); }
+            AC.SetFloat("Vel", 0f);
+            int shouldReverse = 1;
+            if (right) { shouldReverse *= -1; }
+            if (!facing) { Flip(); }
+            if (timer <= chargeTime)
             {
                 timer += Time.deltaTime;
-                float timerPercent = timer / chargeTime;
+                float midStep = .5f;
+
+                float timerPercent = timer / (chargeTime - midStep);
                 float colorLerp = Mathf.Lerp(0, 255, timerPercent);
+                float angleLerp = Mathf.Lerp(0, -90, timerPercent);
                 chairSprite.GetComponent<SpriteRenderer>().color = new Color(255, 255 - colorLerp, 255 - colorLerp);
+                chairSprite.transform.rotation = Quaternion.Euler(0, 0, shouldReverse * angleLerp);
+            }
+            else
+            {
+                timer = 0;
+                state = ChairState.attacking;
             }
         }
 
@@ -85,13 +102,31 @@
         */
         protected override void Attack()
         {
-            
+            absorbParticles.Stop();
+            if (!glowParticles.isPlaying) { glowParticles.Play(); }
+            if (!dustParticles.isPlaying) { dustParticles.Play(); }
+            if (timer < runTime)
+            {
+                rgbd2d.velocity = new Vector2(speed * 5, rgbd2d.velocity.y);
+                AC.SetFloat("Vel", 1.0f);
+                timer += Time.deltaTime;
+            }
+            else
+            {
+                timer = 0;
+                state = ChairState.roaming;
+                resetToRoaming();
+            }
 
+        }
 
-
-            
-
-           
+        public void resetToRoaming()
+        {
+            glowParticles.Stop();
+            dustParticles.Stop();
+            absorbParticles.Stop();
+            chairSprite.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+            chairSprite.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         /*
         Method to flip the sprite
@@ -151,7 +186,7 @@
             int shouldReverse = -1;
             if (right) { shouldReverse *= -1; }
 
-            particles.Emit(1);
+            glowParticles.Emit(1);
         }
 
         public void IsFacing()
@@ -168,20 +203,6 @@
             {
                 facing = false;
             }
-        }
-
-        public void Vibrate()
-        {
-            /*
-            if(chairSprite != null)
-            {
-                chairSprite.transform.localPosition = new Vector3(0 + UnityEngine.Random.Range(0,.3f), 0 + UnityEngine.Random.Range(0, .3f), 0);
-            }
-            else
-            {
-                chairSprite.transform.localPosition = Vector3.zero;
-            }
-            //*/
         }
 
     }
