@@ -4825,11 +4825,11 @@ GameObject:
   - component: {fileID: 1147513167}
   - component: {fileID: 1147513168}
   - component: {fileID: 1147513169}
-  - component: {fileID: 4000803099118976818}
   - component: {fileID: 1183819725322638955}
+  - component: {fileID: 3323509772694263262}
   m_Layer: 12
   m_Name: HurtBox
-  m_TagString: Untagged
+  m_TagString: furnitureAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4922,21 +4922,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4000803099118976818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1147513166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4ca3d9ed3e94244cac10c2974863a47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
-  stun: 0
-  attackId: 0
 --- !u!114 &1183819725322638955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4955,6 +4940,21 @@ MonoBehaviour:
   alphaThreshold: 0.438
   drawOutside: 1
   enableInstancing: 0
+--- !u!114 &3323509772694263262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147513166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4ca3d9ed3e94244cac10c2974863a47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  stun: 0
+  attackId: 0
 --- !u!1 &2514682394446613107
 GameObject:
   m_ObjectHideFlags: 0
@@ -5049,7 +5049,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cb6940d97deb9438c5e6d7e98fb7be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   pivotPoint: {fileID: 2514682394446613107}
+  referenceIndex: 0
   held: 0
   isOversizedObject: 0
   maxDurability: 10
@@ -5057,5 +5059,5 @@ MonoBehaviour:
   hitbox: {fileID: 2514682394446613106}
   hurtbox: {fileID: 1147513168}
   attackReach: 1.5
-  punchDamage: {fileID: 4000803099118976818}
+  punchDamage: {fileID: 3323509772694263262}
   punchParticles: {fileID: 825510941}

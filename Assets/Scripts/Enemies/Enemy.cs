@@ -14,6 +14,7 @@
         public Furniture.FurniturePool.FurnitureTypes deathItem;
         public bool facing = false;
         public EnemyHealthBar healthBar;
+        public Vector3 impuluse;
 
         [SerializeField]
         private int referenceIndex = 0;
@@ -105,7 +106,7 @@
                 
                 if (attackID != collision.gameObject.GetComponent<DamageDealer>().attackId)
                 {
-                    health--;
+                    health --;
                     float percent = (this.health / (float)this.maxHealth);
                     if (percent < 0)
                         percent = 0;
