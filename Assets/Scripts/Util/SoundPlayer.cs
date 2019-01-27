@@ -5,8 +5,8 @@
 
     public class SoundPlayer : MonoBehaviour, IPoolable
     {
-        [SerializeField]
-        private SoundPool.SoundTypes type;
+        [Range(0, 19)]
+        public int soundIndex;
         [SerializeField]
         private AudioSource soundPlayer;
         [SerializeField]
@@ -59,8 +59,7 @@
 
         private void ReturnSound()
         {
-            Debug.Log("Returning");
-            SoundPool.Instance.ReturnSound(this.type, this.gameObject);
+            SoundPool.Instance.ReturnSound( soundIndex, this.gameObject);
         }
     }
 }
