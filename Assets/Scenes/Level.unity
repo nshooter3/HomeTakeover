@@ -5055,6 +5055,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Curtain (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3054340236982513561, guid: 69aa5eb75c265a165909348b17067915,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3054340236982513560, guid: 69aa5eb75c265a165909348b17067915,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5213,6 +5218,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Curtain (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054340236982513561, guid: 69aa5eb75c265a165909348b17067915,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3054340236982513560, guid: 69aa5eb75c265a165909348b17067915,
         type: 3}
@@ -5417,6 +5427,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Curtain
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054340236982513561, guid: 69aa5eb75c265a165909348b17067915,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3054340236982513560, guid: 69aa5eb75c265a165909348b17067915,
         type: 3}
@@ -6105,6 +6120,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Curtain (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 3054340236982513561, guid: 69aa5eb75c265a165909348b17067915,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3054340236982513560, guid: 69aa5eb75c265a165909348b17067915,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6263,6 +6283,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Curtain (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054340236982513561, guid: 69aa5eb75c265a165909348b17067915,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3054340236982513560, guid: 69aa5eb75c265a165909348b17067915,
         type: 3}
@@ -6467,6 +6492,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Curtain (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054340236982513561, guid: 69aa5eb75c265a165909348b17067915,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3054340236982513560, guid: 69aa5eb75c265a165909348b17067915,
         type: 3}
@@ -7065,6 +7095,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Curtain (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 3054340236982513561, guid: 69aa5eb75c265a165909348b17067915,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3054340236982513560, guid: 69aa5eb75c265a165909348b17067915,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7351,6 +7386,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Curtain (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 3054340236982513561, guid: 69aa5eb75c265a165909348b17067915,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3054340236982513560, guid: 69aa5eb75c265a165909348b17067915,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7509,6 +7549,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Curtain (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054340236982513561, guid: 69aa5eb75c265a165909348b17067915,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3054340236982513560, guid: 69aa5eb75c265a165909348b17067915,
         type: 3}
@@ -7726,6 +7771,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Curtain (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 3054340236982513561, guid: 69aa5eb75c265a165909348b17067915,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3054340236982513560, guid: 69aa5eb75c265a165909348b17067915,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7884,6 +7934,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Curtain (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054340236982513561, guid: 69aa5eb75c265a165909348b17067915,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3054340236982513560, guid: 69aa5eb75c265a165909348b17067915,
         type: 3}
@@ -8216,6 +8271,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Curtain (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054340236982513561, guid: 69aa5eb75c265a165909348b17067915,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3054340236982513560, guid: 69aa5eb75c265a165909348b17067915,
         type: 3}
@@ -9285,6 +9345,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Curtain (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054340236982513561, guid: 69aa5eb75c265a165909348b17067915,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3054340236982513560, guid: 69aa5eb75c265a165909348b17067915,
         type: 3}
@@ -10453,6 +10518,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Curtain (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3054340236982513561, guid: 69aa5eb75c265a165909348b17067915,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3054340236982513560, guid: 69aa5eb75c265a165909348b17067915,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10782,6 +10852,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Curtain (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054340236982513561, guid: 69aa5eb75c265a165909348b17067915,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3054340236982513560, guid: 69aa5eb75c265a165909348b17067915,
         type: 3}
@@ -11156,6 +11231,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Curtain (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054340236982513561, guid: 69aa5eb75c265a165909348b17067915,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3054340236982513560, guid: 69aa5eb75c265a165909348b17067915,
         type: 3}
