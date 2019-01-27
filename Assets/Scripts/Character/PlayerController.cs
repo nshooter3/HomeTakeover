@@ -168,10 +168,12 @@
                     if (tempFurn == null)
                     {
                         ArmAttack();
+                        SoundPool.Instance.PlaySound(0);
                     }
                     else
                     {
                         Grab(tempFurn);
+                        SoundPool.Instance.PlaySound(0);
                     }
                 }
                 else
@@ -187,6 +189,7 @@
 
         public void MeleeWeaponPunch(float duration)
         {
+            SoundPool.Instance.PlaySound(13);
             armMeleeTimer = duration;
             maxArmMeleeTimer = duration;
 
@@ -201,6 +204,7 @@
 
         void ThrowItem()
         {
+            SoundPool.Instance.PlaySound(19);
             Vector2 direction = new Vector2(reticule.transform.position.x - armHolderTransform.position.x, reticule.transform.position.y - armHolderTransform.position.y);
             heldItem.OnThrow(armHolderTransform, direction, throwForce, rgdb.velocity);
             heldItem = null;

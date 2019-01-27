@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using UnityEngine;
     using HomeTakeover.Character;
+    using Util.ObjectPooling;
 
     public class BlenderGun : Furniture
     {
