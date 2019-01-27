@@ -17,6 +17,7 @@
         private Vector3 vectorToTarget;
         private float angle;
         private Quaternion q;
+        private int attackID;
    
 
         private void Start()
@@ -34,20 +35,14 @@
         /*
         Rotates sprite to face player
         */
-        public void Target()
-        {
-            vectorToTarget = PlayerController.instance.gameObject.transform.position - transform.position;
-            angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-            q = Quaternion.AngleAxis(angle, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
-        }
+      
 
         /*
         Method to confirm if enemy is facing player withing 10 deg angel
         */
         public void IsFacing()
         {
-            float angle = 45;
+            float angle = 10;
             if (Vector3.Angle(PlayerController.instance.gameObject.transform.forward, transform.position - PlayerController.instance.gameObject.transform.position) < angle)
             {
                 facing = true;
@@ -63,9 +58,13 @@
         */
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.tag == "PlayerAttack")
+            if (collision.gameObject.tag == "furnitureAttack")
             {
-                health--;
+                if (attackID != 0)
+                {
+                    health--;
+                    attackID = 0;
+                }
                 if (health <= 0)
                     Die();
             }

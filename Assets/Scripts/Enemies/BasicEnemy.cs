@@ -15,8 +15,6 @@
         //Player is in Range
         public bool inRange = false;
 
-
-
         private float timer;
         private bool right;
         
@@ -32,18 +30,19 @@
         */
         protected override void Attack()
         {
-             Vector2 v2 = this.gameObject.transform.position;
-             Collider2D[] hitColliders = Physics2D.OverlapCircleAll(v2, enemyAttackRange);
-     
-            for(int i = 0; hitColliders.Length > i; i++)
-                if ( hitColliders[i].gameObject.tag == "Player")
-                {
-                    inRange = true;
-                }
-                else
-                {
-                    inRange = false;
-                }
+            Vector2 v2 = this.gameObject.transform.position;
+            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(v2, enemyAttackRange);
+            float playerDistance = Vector2.Distance((Vector2)this.gameObject.transform.position, v2);
+
+            if (playerDistance <= enemyAttackRange)
+            {
+                inRange = true;
+                
+            }
+            else
+            {
+                inRange = false;
+            }
         }
         /*
         Method to flip the sprite
@@ -77,8 +76,7 @@
                 if (inRange)
                 {
                     timer = 0;
-                    this.Target();
-                    //shoot
+                      //shoot
                 }
                 else
                 {
