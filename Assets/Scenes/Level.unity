@@ -6731,11 +6731,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 5262817006751212661, guid: eed2b5207e0b64f409276fd50b394895,
-        type: 3}
-      propertyPath: playerCenter
-      value: 
-      objectReference: {fileID: 1903383665}
     - target: {fileID: 8631096664532536145, guid: eed2b5207e0b64f409276fd50b394895,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6796,6 +6791,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 2055556019}
+    - target: {fileID: 5262817006751212661, guid: eed2b5207e0b64f409276fd50b394895,
+        type: 3}
+      propertyPath: playerCenter
+      value: 
+      objectReference: {fileID: 1903383665}
     - target: {fileID: 8631096664532536238, guid: eed2b5207e0b64f409276fd50b394895,
         type: 3}
       propertyPath: m_BackGroundColor.r
@@ -6920,6 +6920,7 @@ MonoBehaviour:
   - {fileID: 1370299791}
   - {fileID: 1859302629}
   - {fileID: 1287151033}
+  - {fileID: 749068081}
   spawners:
   - {fileID: 1661572574}
   - {fileID: 1284016266}
@@ -7427,6 +7428,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69aa5eb75c265a165909348b17067915, type: 3}
+--- !u!114 &749068081 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4419010809772478134, guid: 37fa4cfdc19b0b1c9aa699eb77d2cca5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1310564432}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98301ba03c9b32bd1a7ef6f496ecd13e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &812008693
 PrefabInstance:
   m_ObjectHideFlags: 0

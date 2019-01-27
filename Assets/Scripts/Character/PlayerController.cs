@@ -95,6 +95,7 @@
         public float armMeleeTimer, maxArmMeleeTimer;
 
         private Collider2D collider;
+        public Vector2 direction;
 
         /// <summary>
         /// Singleton
@@ -135,6 +136,7 @@
             {
                 heldItem = null;
             }
+            dirCalc();
             Move();
             UpdateArm();
             UpdateAnimations();
@@ -202,10 +204,13 @@
             tempFurn.OnPickup(objectPivotPoint);
         }
 
+        void dirCalc()
+        {
+            direction = new Vector2(reticule.transform.position.x - armHolderTransform.position.x, reticule.transform.position.y - armHolderTransform.position.y);
+        }
         void ThrowItem()
         {
             SoundPool.Instance.PlaySound(19);
-            Vector2 direction = new Vector2(reticule.transform.position.x - armHolderTransform.position.x, reticule.transform.position.y - armHolderTransform.position.y);
             heldItem.OnThrow(armHolderTransform, direction, throwForce, rgdb.velocity);
             heldItem = null;
         }

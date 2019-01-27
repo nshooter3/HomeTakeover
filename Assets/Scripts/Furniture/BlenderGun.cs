@@ -31,6 +31,9 @@
         {
             gunParticles.Play();
             int attackId = PlayerController.instance.RequestAttackId();
+            GameObject temp = Enemies.BulletPool.Instance.GetBullet(Enemies.BulletPool.BulletTypes.PlayerBullet);
+            temp.transform.position = this.gameObject.transform.position;
+            temp.GetComponent<Rigidbody2D>().velocity = PlayerController.instance.direction * 8f;
         }
 
         public override void OnThrowChild()
