@@ -30,6 +30,9 @@
         public int maxDurability;
         private int durability;
 
+        public bool isBroken = false;
+        public float breakTimer = 0, maxBreakTimer = 0.25f;
+
         /// <summary>
         /// How much damage this object deals as a thrown projectile
         /// </summary>
@@ -107,6 +110,7 @@
             hurtbox.enabled = false;
             spriteTransform = gameObject.GetComponentInChildren<SpriteRenderer>().transform;
             originalScale = spriteTransform.localScale;
+            isBroken = false;
         }
 
         public void TakeDurabilityDamage(int damage)
@@ -118,14 +122,10 @@
             this.healthBar.Percent = percent;
             if (durability <= 0)
             {
-                Break();
+                OnDrop(transform);
+                isBroken = true;
+                breakTimer = maxBreakTimer;
             }
-        }
-
-        public void Break()
-        {
-            OnDrop(transform);
-            Deallocate();
         }
 
         /// <summary>
@@ -134,13 +134,16 @@
         /// <param name="handPivot"> The empty transform at the end of the player's arm where we parent held items </param>
         public void OnPickup(Transform handPivot)
         {
-            rgbd.bodyType = RigidbodyType2D.Kinematic;
-            transform.parent = handPivot;
-            transform.localPosition = Vector2.zero;
-            transform.localEulerAngles = Vector2.zero;
-            rgbd.velocity = Vector3.zero;
-            rgbd.angularVelocity = 0;
-            hitbox.enabled = false;
+            if (!isBroken)
+            {
+                rgbd.bodyType = RigidbodyType2D.Kinematic;
+                transform.parent = handPivot;
+                transform.localPosition = Vector2.zero;
+                transform.localEulerAngles = Vector2.zero;
+                rgbd.velocity = Vector3.zero;
+                rgbd.angularVelocity = 0;
+                hitbox.enabled = false;
+            }
         }
 
         /// <summary>
@@ -187,20 +190,26 @@
 
         void OnMouseOver()
         {
-            if (!isScaled && PlayerController.instance.heldItem == null)
+            if (!isBroken)
             {
-                originalScale = spriteTransform.localScale;
-                spriteTransform.localScale = originalScale * 1.2f;
-                spriteTransform.gameObject.GetComponent<SpriteGlowEffect>().OutlineWidth = 2;
-                isScaled = true;
+                if (!isScaled && PlayerController.instance.heldItem == null)
+                {
+                    originalScale = spriteTransform.localScale;
+                    spriteTransform.localScale = originalScale * 1.2f;
+                    spriteTransform.gameObject.GetComponent<SpriteGlowEffect>().OutlineWidth = 2;
+                    isScaled = true;
+                }
             }
         }
 
         void OnMouseExit()
         {
-            spriteTransform.localScale = originalScale;
-            spriteTransform.gameObject.GetComponent<SpriteGlowEffect>().OutlineWidth = 0;
-            isScaled = false;
+            if (!isBroken)
+            {
+                spriteTransform.localScale = originalScale;
+                spriteTransform.gameObject.GetComponent<SpriteGlowEffect>().OutlineWidth = 0;
+                isScaled = false;
+            }
         }
 
         /// <summary>

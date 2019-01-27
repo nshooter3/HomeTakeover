@@ -5425,6 +5425,9 @@ MonoBehaviour:
   held: 0
   isOversizedObject: 0
   maxDurability: 7
+  isBroken: 0
+  breakTimer: 0
+  maxBreakTimer: 0.25
   throwDamage: 1
   hitbox: {fileID: 2514682394446613106}
   hurtbox: {fileID: 1147513168}

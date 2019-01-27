@@ -42,22 +42,36 @@
 
         void Update()
         {
-            if (cooldown > 0)
+            if (isBroken)
             {
-                cooldown = Mathf.Max(0, cooldown - Time.deltaTime);
-                float t = cooldown / maxCooldown;
-                sprite.transform.localPosition = Vector2.Lerp(initPos, initPos + attackPos, t);
-                sprite.transform.localScale = Vector3.Lerp(initScale, initScale * 1.5f, t);
-                sprite.color = Color.Lerp(Color.white, Color.red, t);
-                if (cooldown == 0)
+                sprite.transform.localScale = Vector3.one;
+                breakTimer -= Time.deltaTime;
+                float t = breakTimer / maxBreakTimer;
+                sprite.color = Color.Lerp(new Color(1,0,0,0), new Color(1, 0, 0, 1), t);
+                if (breakTimer <= 0)
                 {
-                    ToggleHurtBox(false);
+                    Deallocate();
                 }
             }
-            if (punchDamage.hitEnemy == true)
+            else
             {
-                TakeDurabilityDamage(1);
-                punchDamage.hitEnemy = false;
+                if (cooldown > 0)
+                {
+                    cooldown = Mathf.Max(0, cooldown - Time.deltaTime);
+                    float t = cooldown / maxCooldown;
+                    sprite.transform.localPosition = Vector2.Lerp(initPos, initPos + attackPos, t);
+                    sprite.transform.localScale = Vector3.Lerp(initScale, initScale * 1.5f, t);
+                    sprite.color = Color.Lerp(Color.white, Color.red, t);
+                    if (cooldown == 0)
+                    {
+                        ToggleHurtBox(false);
+                    }
+                }
+                if (punchDamage.hitEnemy == true)
+                {
+                    TakeDurabilityDamage(1);
+                    punchDamage.hitEnemy = false;
+                }
             }
         }
     }

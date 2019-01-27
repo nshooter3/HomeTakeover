@@ -1,12 +1,12 @@
 ﻿namespace HomeTakeover.Management.Spawner
 {
     using UnityEngine;
-    using Enemies;
+    using Furniture;
     using System.Collections;
 
-    public class EnemySpawner : MonoBehaviour
+    public class FurnitureSpawner : MonoBehaviour
     {
-        public EnemyPool.EnemyTypes type;
+        public FurniturePool.FurnitureTypes type;
         public bool spawnOnStart;
 
         private void Start()
@@ -17,15 +17,15 @@
 
         public GameObject Spawn()
         {
-            GameObject obj = EnemyPool.Instance.GetEnemy(this.type);
+            GameObject obj = FurniturePool.Instance.GetFurniture(this.type);
             if (obj != null)
                 obj.transform.position = this.transform.position;
             return obj;
         }
 
-        public GameObject Spawn(EnemyPool.EnemyTypes type)
+        public GameObject Spawn(FurniturePool.FurnitureTypes type)
         {
-            GameObject obj = EnemyPool.Instance.GetEnemy(type);
+            GameObject obj = FurniturePool.Instance.GetFurniture(type);
             if (obj != null)
                 obj.transform.position = this.transform.position;
             return obj;
