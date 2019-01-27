@@ -166,10 +166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e71c84038120f458d9fc6a7a1d3758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 2
   maxHealth: 3
   speed: 3
-  deathItem: 0
+  deathItem: 3
   facing: 0
   healthBar: {fileID: 5182658061053888761}
   impuluse: {x: 0, y: 0, z: 0}
