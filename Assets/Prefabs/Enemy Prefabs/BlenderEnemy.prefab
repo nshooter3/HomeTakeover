@@ -144,18 +144,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ad89dba043f59479c1bb0f25648bbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   maxHealth: 3
   speed: 3
-  deathItem: {fileID: 0}
+  deathItem: 0
   facing: 0
   healthBar: {fileID: 818579505}
+  impuluse: {x: 0, y: 0, z: 0}
+  referenceIndex: 0
   rgbd2d: {fileID: 508601375}
   flipTime: 1
   enemyAttackRange: 2
   inRange: 0
   shotPower: 2
   powerShotPower: 7
-  bullet: {fileID: 2514682394446613107, guid: 2542b21655b71044399e69997fb7360c, type: 3}
+  bullet: 0
   ammocount: 3
   blenderSprite: {fileID: 8006165487669481398}
   particles: {fileID: 8063582734182769780}
@@ -746,6 +749,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchParticle
       objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 3.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: ShapeModule.angle
+      value: 29.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7521614005735667948, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -800,46 +843,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: lengthInSec
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 1.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 3.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: ShapeModule.angle
-      value: 29.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: ShapeModule.radius.value
-      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06, type: 3}
