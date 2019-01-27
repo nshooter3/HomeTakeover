@@ -83,11 +83,12 @@
        void OnTriggerEnter2D(Collider2D collision)
         {
             rgbd.velocity = Vector3.zero;
-           BulletPool.Instance.ReturnBullet(this.type, this.gameObject);
-            if (collision.gameObject.tag == "Player")
+          
+            if (collision.gameObject.layer == LayerMask.NameToLayer("enemies"))
             {
-                
+                collision.gameObject.GetComponent<Enemy>().TakeDamage();
             }
+            BulletPool.Instance.ReturnBullet(this.type, this.gameObject);
         }
         void Init()
         {

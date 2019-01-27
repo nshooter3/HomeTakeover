@@ -95,6 +95,18 @@
             }
         }
 
+
+        public void TakeDamage()
+        {
+            health--;
+            float percent = (this.health / (float)this.maxHealth);
+            if (percent < 0)
+                percent = 0;
+            this.healthBar.Percent = percent;
+
+            if (health <= 0)
+                Die();
+        }
         /*
        Collider behavoirs for Player and PlayerAttack
         */
@@ -106,13 +118,8 @@
 
                 if (attackID != collision.gameObject.GetComponent<DamageDealer>().attackId)
                 {
-                    health --;
-                    float percent = (this.health / (float)this.maxHealth);
-                    if (percent < 0)
-                        percent = 0;
-                    this.healthBar.Percent = percent;
+                    TakeDamage();
                     attackID = collision.gameObject.GetComponent<DamageDealer>().attackId;
-
                 }
                 if (health <= 0)
                     Die();
