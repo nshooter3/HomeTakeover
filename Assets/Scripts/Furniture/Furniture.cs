@@ -4,6 +4,7 @@
     using HomeTakeover.Character;
     using SpriteGlow;
     using Util.ObjectPooling;
+    using UI;
 
     public abstract class Furniture : MonoBehaviour, IPoolable
     {
@@ -47,6 +48,9 @@
         private Transform spriteTransform;
         private Vector3 originalScale;
         private bool isScaled;
+
+        [SerializeField]
+        private EnemyHealthBar healthBar;
 
 
         public IPoolable SpawnCopy(int referenceIndex)
@@ -92,12 +96,36 @@
         /// </summary>
         public void Init()
         {
+            if (healthBar == null)
+            {
+                healthBar = GetComponentInChildren<EnemyHealthBar>();
+            }
+            this.healthBar.Percent = 1;
             rgbd = GetComponent<Rigidbody2D>();
             durability = maxDurability;
             hitbox.enabled = true;
             hurtbox.enabled = false;
             spriteTransform = gameObject.GetComponentInChildren<SpriteRenderer>().transform;
             originalScale = spriteTransform.localScale;
+        }
+
+        public void TakeDurabilityDamage(int damage)
+        {
+            durability -= damage;
+            float percent = (this.durability / (float)this.maxDurability);
+            if (percent < 0)
+                percent = 0;
+            this.healthBar.Percent = percent;
+            if (durability <= 0)
+            {
+                Break();
+            }
+        }
+
+        public void Break()
+        {
+            OnDrop(transform);
+            Deallocate();
         }
 
         /// <summary>

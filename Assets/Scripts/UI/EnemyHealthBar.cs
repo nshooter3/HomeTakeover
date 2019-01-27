@@ -12,6 +12,8 @@
         private Vector3 offset;
         private Transform parent;
 
+        float hideTimer = 0, maxHideTimer = 2.0f;
+
         public float Percent
         {
             get { return this.percent; }
@@ -19,6 +21,7 @@
             {
                 if (init)
                 {
+                    hideTimer = maxHideTimer;
                     this.percent = value;
                     bar.transform.parent.gameObject.SetActive(this.percent < 1f);
                     UpdateBar();
@@ -39,6 +42,14 @@
 
         private void Update()
         {
+            if (hideTimer > 0)
+            {
+                hideTimer -= Time.deltaTime;
+                if (hideTimer <= 0)
+                {
+                    bar.transform.parent.gameObject.SetActive(false);
+                }
+            }
             this.transform.rotation = Quaternion.identity;
             this.transform.position = this.parent.position + this.offset;
         }

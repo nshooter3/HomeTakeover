@@ -102,8 +102,8 @@
         {
             if (collision.gameObject.tag == "furnitureAttack")
             {
+                collision.gameObject.GetComponent<DamageDealer>().hitEnemy = true;
 
-                
                 if (attackID != collision.gameObject.GetComponent<DamageDealer>().attackId)
                 {
                     health --;
