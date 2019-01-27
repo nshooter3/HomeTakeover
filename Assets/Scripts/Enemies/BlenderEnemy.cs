@@ -29,6 +29,8 @@
 
         public ParticleSystem particles;
 
+        public Animator AC;
+
         //If enemy should be using extra powerful horizontal shot.
         public bool powerShot = false;
 
@@ -134,10 +136,12 @@
                 if (!powerShot)
                 {
                     rgbd2d.velocity = new Vector2(speed, rgbd2d.velocity.y);
+                    AC.SetFloat("Vel", 1.0f);
                 }
                 else
                 {
                     Vibrate();
+                    AC.SetFloat("Vel", 0);
                 }
             }
             else
