@@ -19,8 +19,8 @@
         public bool inRange = false;
 
         //Shooting related variables
-        public float shotPower = 2f;
-        public float powerShotPower = 7f;
+        public float shotPower = 15f;
+        public float powerShotPower = 15f;
         public Furniture.FurniturePool.FurnitureTypes furniture;
         public BulletPool.BulletTypes bullet;
         public int ammocount = 3;
@@ -166,18 +166,29 @@
             int shouldReverse = -1;
             if (right) { shouldReverse *= -1; }
 
-             //  GameObject temp = Furniture.FurniturePool.Instance.GetFurniture(furniture);
-            GameObject temp = BulletPool.Instance.GetBullet(bullet);
-            if (temp != null)
+            //  GameObject temp = Furniture.FurniturePool.Instance.GetFurniture(furniture);
+            //temp2 = BulletPool.Instance.GetBullet(BulletPool.BulletTypes.Bullet);
+            if (powerShot)
             {
-                temp.transform.position = this.gameObject.transform.position;
-
-                if (powerShot)
+                GameObject temp = BulletPool.Instance.GetBullet(BulletPool.BulletTypes.Bullet);
+                if (temp != null)
+                {
+                    temp.transform.position = this.gameObject.transform.position;
                     temp.GetComponent<Rigidbody2D>().velocity = new Vector2(1 * shouldReverse, 0) * playerDistance * powerShotPower;
-                else
-                    temp.GetComponent<Rigidbody2D>().velocity = new Vector2(1 * shouldReverse, 1) * playerDistance * shotPower;
+                }
+                particles.Emit(1);
             }
-            particles.Emit(1);
+            else
+            {
+                GameObject temp = BulletPool.Instance.GetBullet(BulletPool.BulletTypes.HeavyBullet);
+                if (temp != null)
+                {
+                    temp.transform.position = this.gameObject.transform.position;
+                    temp.GetComponent<Rigidbody2D>().velocity = new Vector2(-1 * shouldReverse, 3) * shotPower;
+                }
+                particles.Emit(1);
+            }
+           
         }
 
         public void IsFacing()

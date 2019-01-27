@@ -12,7 +12,7 @@
         [SerializeField]
         private int[] bulletPoolSizes;
 
-        public enum BulletTypes { Bullet }
+        public enum BulletTypes { Bullet , HeavyBullet }
 
         /// <summary> Singleton instance for this object pool. </summary>
         public static BulletPool Instance { get; private set; }
@@ -42,6 +42,7 @@
         public GameObject GetBullet(BulletTypes type)
         {
             IPoolable entity = AllocateEntity(bulletPools[(int)type]);
+            entity.Initialize();
             if (entity == null)
                 return null;
 
