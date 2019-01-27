@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2431597980475134337}
   - component: {fileID: 7473334358886454236}
-  - component: {fileID: 5973060735149919187}
   - component: {fileID: 508601375}
   - component: {fileID: 388500000}
   - component: {fileID: 5286203052265397118}
+  - component: {fileID: 5117833894880074770}
   m_Layer: 10
   m_Name: BlenderEnemy
   m_TagString: Untagged
@@ -85,32 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5973060735149919187
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 508601373}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
-    newSize: {x: 0.32, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2}
-  m_EdgeRadius: 0
 --- !u!50 &508601375
 Rigidbody2D:
   serializedVersion: 4
@@ -185,6 +159,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &5117833894880074770
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508601373}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
 --- !u!1 &818579504
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,6 +745,46 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 3.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: ShapeModule.angle
+      value: 29.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7521614005735667948, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -809,46 +839,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: lengthInSec
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 1.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 3.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: ShapeModule.angle
-      value: 29.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
-        type: 3}
-      propertyPath: ShapeModule.radius.value
-      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06, type: 3}
