@@ -52,6 +52,11 @@
         private Vector3 originalScale;
         private bool isScaled;
 
+        /// <summary>
+        /// How much to z rotate weapon by when held
+        /// </summary>
+        public Vector3 rotationOffset;
+
         [SerializeField]
         private EnemyHealthBar healthBar;
 
@@ -139,7 +144,7 @@
                 rgbd.bodyType = RigidbodyType2D.Kinematic;
                 transform.parent = handPivot;
                 transform.localPosition = Vector2.zero;
-                transform.localEulerAngles = Vector2.zero;
+                transform.localEulerAngles = rotationOffset;
                 rgbd.velocity = Vector3.zero;
                 rgbd.angularVelocity = 0;
                 hitbox.enabled = false;

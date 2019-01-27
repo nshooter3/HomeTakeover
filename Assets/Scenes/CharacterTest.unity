@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1724022661382b4fb2f22c0902e9cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   spawnOnStart: 1
 --- !u!4 &2498544
 Transform:
@@ -598,7 +598,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   furniturePools:
   - {fileID: 1506265930, guid: 2542b21655b71044399e69997fb7360c, type: 3}
-  furniturePoolSizes: 05000000
+  - {fileID: 5017984858843094807, guid: b330ca577dbdf6048bb487290fb9702b, type: 3}
+  furniturePoolSizes: 1400000014000000
 --- !u!4 &1744203191
 Transform:
   m_ObjectHideFlags: 0
