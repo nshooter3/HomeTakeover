@@ -1,6 +1,7 @@
 ﻿namespace HomeTakeover.Character
 {
     using UnityEngine;
+    using System.Collections;
     using HomeTakeover.Util;
     using HomeTakeover.Furniture;
     using System.Collections.Generic;
@@ -28,6 +29,7 @@
         /// The layer mask used to check for the ground beneath the player
         /// </summary>
         public LayerMask groundCheckLayerMask;
+        public LayerMask platformCheckLayerMask;
 
         private bool canJumpAgainInAir = true;
 
@@ -92,6 +94,8 @@
         /// </summary>
         public float armMeleeTimer, maxArmMeleeTimer;
 
+        private Collider2D collider;
+
         /// <summary>
         /// Singleton
         /// </summary>
@@ -114,6 +118,7 @@
         private void Start()
         {
             rgdb = GetComponent<Rigidbody2D>();
+            collider = GetComponent<Collider2D>();
             raycastCheckPoints = new List<Transform>();
             raycastCheckPoints.Add(left);
             raycastCheckPoints.Add(transform);
@@ -260,7 +265,7 @@
             RaycastHit2D hit;
             foreach (Transform trans in raycastCheckPoints)
             {
-                hit = Physics2D.Raycast(trans.position, trans.TransformDirection(Vector2.down), raycastDistance, groundCheckLayerMask);
+                hit = Physics2D.Raycast(trans.position, trans.TransformDirection(Vector2.down), raycastDistance, groundCheckLayerMask | platformCheckLayerMask);
                 if (hit.collider != null)
                 {
                     canJumpAgainInAir = true;
@@ -295,6 +300,12 @@
             {
                 x = 0;
             }
+
+            if (CustomInput.BoolHeld(CustomInput.UserInput.Down)
+                        )
+            {
+                StartCoroutine("Fall");
+            } 
             
             vel = new Vector2(x*speed*Time.deltaTime, rgdb.velocity.y);
             rgdb.velocity = vel;
@@ -318,6 +329,27 @@
         public int RequestAttackId()
         {
             return AttackId++;
+        }
+
+        /// <summary> Makes the character fall by disabling then enabling the collider 
+        /// Contact filter is broken, aaaaaaah
+        /// <summary/>
+        private IEnumerator Fall() {
+            ContactPoint2D[] contacts = new ContactPoint2D[5];
+            collider.GetContacts(contacts);
+            foreach (ContactPoint2D contact in contacts)
+            {
+                if (contact.collider != null && contact.collider.gameObject.name.Equals("PlatformMap")) 
+                {
+                    Physics2D.IgnoreCollision(collider, contact.collider, true);
+                }
+            }
+            yield return new WaitForSeconds(0.3f);
+            foreach (ContactPoint2D contact in contacts)
+            {
+                if (contact.collider != null)
+                    Physics2D.IgnoreCollision(collider, contact.collider, false);
+            }
         }
     }
 }
