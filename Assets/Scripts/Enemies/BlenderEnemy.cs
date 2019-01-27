@@ -71,6 +71,14 @@
             if (inRange)
             {
                 timer += Time.deltaTime;
+                if (flipTime - timer < .5f)
+                {
+                    blenderSprite.GetComponent<SpriteRenderer>().color = new Color(255 - (flipTime - timer) * 255, 0, 0);
+                }
+                else
+                {
+                    blenderSprite.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                }
                 if (timer > flipTime)
                 {
                     timer = 0;
