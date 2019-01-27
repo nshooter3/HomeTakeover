@@ -8077,6 +8077,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69aa5eb75c265a165909348b17067915, type: 3}
+--- !u!1001 &1310564432
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4419010809772478135, guid: 37fa4cfdc19b0b1c9aa699eb77d2cca5,
+        type: 3}
+      propertyPath: m_Name
+      value: SoundPool
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419010809772478133, guid: 37fa4cfdc19b0b1c9aa699eb77d2cca5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.3589625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419010809772478133, guid: 37fa4cfdc19b0b1c9aa699eb77d2cca5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.3410826
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419010809772478133, guid: 37fa4cfdc19b0b1c9aa699eb77d2cca5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.55137336
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419010809772478133, guid: 37fa4cfdc19b0b1c9aa699eb77d2cca5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419010809772478133, guid: 37fa4cfdc19b0b1c9aa699eb77d2cca5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419010809772478133, guid: 37fa4cfdc19b0b1c9aa699eb77d2cca5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419010809772478133, guid: 37fa4cfdc19b0b1c9aa699eb77d2cca5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419010809772478133, guid: 37fa4cfdc19b0b1c9aa699eb77d2cca5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419010809772478133, guid: 37fa4cfdc19b0b1c9aa699eb77d2cca5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419010809772478133, guid: 37fa4cfdc19b0b1c9aa699eb77d2cca5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419010809772478133, guid: 37fa4cfdc19b0b1c9aa699eb77d2cca5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 37fa4cfdc19b0b1c9aa699eb77d2cca5, type: 3}
 --- !u!1 &1331350023
 GameObject:
   m_ObjectHideFlags: 0
