@@ -217,6 +217,14 @@
             }
         }
 
+        void OnCollisionEnter2D(Collider2D collision)
+        {
+            if(collision.gameObject.layer == LayerMask.NameToLayer("bullet"))
+            {
+                TakeDurabilityDamage(1);
+            }
+        }
+
         /// <summary>
         /// What do when this weapon attacks? You decide!
         /// </summary>
