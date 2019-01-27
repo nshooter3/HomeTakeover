@@ -193,7 +193,7 @@ MonoBehaviour:
   t2: {fileID: 3054340237550893932}
   distance: 0.05
   compensate1: 0.8
-  compensate2: 9
+  compensate2: 6
   gravityCompensation: 2.5
   usesGravity: 1
   passingForce: {x: 0, y: 0, z: 0}
@@ -397,8 +397,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 1
+        time: 0.003276825
+        value: 0.886364
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -575,7 +575,7 @@ MonoBehaviour:
   t2: {fileID: 3054340236059634577}
   distance: 0.25
   compensate1: 0.8
-  compensate2: 8
+  compensate2: 4
   gravityCompensation: 2
   usesGravity: 1
   passingForce: {x: 0, y: 0, z: 0}
