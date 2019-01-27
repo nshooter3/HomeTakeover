@@ -29,6 +29,8 @@
         /// </summary>
         public LayerMask groundCheckLayerMask;
 
+        private bool canJumpAgainInAir = true;
+
         /// <summary>
         /// The reticule that follows the mouse. Also used as the origin for an OverlapCircle check when attempting to grab items.
         /// </summary>
@@ -257,6 +259,7 @@
                 hit = Physics2D.Raycast(trans.position, trans.TransformDirection(Vector2.down), raycastDistance, groundCheckLayerMask);
                 if (hit.collider != null)
                 {
+                    canJumpAgainInAir = true;
                     return true;
                 }
             }
@@ -292,9 +295,17 @@
             vel = new Vector2(x*speed*Time.deltaTime, rgdb.velocity.y);
             rgdb.velocity = vel;
 
-            if (CustomInput.BoolFreshPress(CustomInput.UserInput.Jump) && IsGrounded())
+            if (CustomInput.BoolFreshPress(CustomInput.UserInput.Jump))
             {
-                vel = new Vector2(vel.x, jumpspeed);
+                if (IsGrounded())
+                {
+                    vel = new Vector2(vel.x, jumpspeed);
+                }
+                else if (canJumpAgainInAir == true)
+                {
+                    canJumpAgainInAir = false;
+                    vel = new Vector2(vel.x, jumpspeed);
+                }
             }
 
             rgdb.velocity = vel;
