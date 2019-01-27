@@ -12,7 +12,7 @@
         [SerializeField]
         private int[] bulletPoolSizes;
 
-        public enum BulletTypes { Bullet , HeavyBullet }
+        public enum BulletTypes { Bullet , HeavyBullet , PlayerBullet}
 
         /// <summary> Singleton instance for this object pool. </summary>
         public static BulletPool Instance { get; private set; }
