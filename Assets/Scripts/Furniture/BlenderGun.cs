@@ -28,7 +28,17 @@
         // Update is called once per frame
         void Update()
         {
-
+            if (isBroken)
+            {
+                sprite.transform.localScale = Vector3.one;
+                breakTimer -= Time.deltaTime;
+                float t = breakTimer / maxBreakTimer;
+                sprite.color = Color.Lerp(new Color(1, 0, 0, 0), new Color(1, 0, 0, 1), t);
+                if (breakTimer <= 0)
+                {
+                    Deallocate();
+                }
+            }
         }
 
         public override void OnUse()
@@ -38,6 +48,7 @@
             GameObject temp = Enemies.BulletPool.Instance.GetBullet(Enemies.BulletPool.BulletTypes.PlayerBullet);
             temp.transform.position = this.gameObject.transform.position;
             temp.GetComponent<Rigidbody2D>().velocity = PlayerController.instance.direction * 8f;
+            TakeDurabilityDamage(1);
         }
 
         public override void OnThrowChild()
