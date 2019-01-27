@@ -4,6 +4,6 @@
 
     public class Wave : MonoBehaviour
     {
-        public GameObject[] objects;
+        public Enemies.EnemyPool.EnemyTypes[] enemies;
     }
 }
