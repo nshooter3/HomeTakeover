@@ -3,10 +3,15 @@
     using UnityEngine;
     using HomeTakeover.Character;
     using SpriteGlow;
+    using Util.ObjectPooling;
 
-    public abstract class Furniture : MonoBehaviour
+    public abstract class Furniture : MonoBehaviour, IPoolable
     {
+        public FurniturePool.FurnitureTypes type;
         public GameObject pivotPoint;
+
+        [SerializeField]
+        private int referenceIndex = 0;
 
         /// <summary>
         /// Whether or not this object is being held by the player
@@ -43,9 +48,43 @@
         private Vector3 originalScale;
         private bool isScaled;
 
-        private void Awake()
+
+        public IPoolable SpawnCopy(int referenceIndex)
+        {
+            Furniture furniture = Instantiate<Furniture>(this);
+            furniture.referenceIndex = referenceIndex;
+            return furniture;
+        }
+
+        public GameObject GetGameObject()
+        {
+            return this.gameObject;
+        }
+
+        public int GetReferenceIndex()
+        {
+            return this.referenceIndex;
+        }
+
+        public void Initialize()
         {
             Init();
+        }
+
+        public void ReInitialize()
+        {
+            this.gameObject.SetActive(true);
+            Init();
+        }
+
+        public void Deallocate()
+        {
+            this.gameObject.SetActive(false);
+        }
+
+        public void Delete()
+        {
+            Destroy(this.gameObject);
         }
 
         /// <summary>

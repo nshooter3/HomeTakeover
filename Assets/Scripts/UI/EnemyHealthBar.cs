@@ -20,7 +20,6 @@
                 if (init)
                 {
                     this.percent = value;
-                    Debug.Log(value);
                     bar.transform.parent.gameObject.SetActive(this.percent < 1f);
                     UpdateBar();
                 }

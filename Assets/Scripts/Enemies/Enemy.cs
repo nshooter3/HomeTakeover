@@ -1,18 +1,22 @@
 ﻿namespace HomeTakeover.Enemies
 {
     using UnityEngine;
-    using HomeTakeover.Util;
     using HomeTakeover.Character;
     using UI;
+    using Util.ObjectPooling;
     
 
-    public abstract class Enemy : MonoBehaviour
+    public abstract class Enemy : MonoBehaviour, IPoolable
     {
+        public EnemyPool.EnemyTypes type;
         public int maxHealth;
         public float speed = 3f;
-        public GameObject deathItem;
+        public Furniture.FurniturePool.FurnitureTypes deathItem;
         public bool facing = false;
         public EnemyHealthBar healthBar;
+
+        [SerializeField]
+        private int referenceIndex = 0;
 
         protected int health;
 
@@ -21,13 +25,46 @@
         private Quaternion q;
         private int attackID = -1;
 
-   
+        public IPoolable SpawnCopy(int referenceIndex)
+        {
+            Enemy enemy = Instantiate<Enemy>(this);
+            enemy.referenceIndex = referenceIndex;
+            return enemy;
+        }
 
-        private void Start()
+        public GameObject GetGameObject()
+        {
+            return this.gameObject;
+        }
+
+        public int GetReferenceIndex()
+        {
+            return this.referenceIndex;
+        }
+
+        public void Initialize()
         {
             health = maxHealth;
             this.healthBar.Percent = 1;
             Init();
+        }
+
+        public void ReInitialize()
+        {
+            this.gameObject.SetActive(true);
+            health = maxHealth;
+            this.healthBar.Percent = 1;
+            Init();
+        }
+
+        public void Deallocate()
+        {
+            this.gameObject.SetActive(false);
+        }
+
+        public void Delete()
+        {
+            Destroy(this.gameObject);
         }
 
         private void Update()
@@ -97,9 +134,10 @@
         */
         protected void Die()
         {
-            GameObject item = Instantiate(deathItem);
-            item.transform.position = this.transform.position;
-            Destroy(this.gameObject);
+            GameObject item = Furniture.FurniturePool.Instance.GetFurniture(deathItem);
+            if(item != null)
+                item.transform.position = this.transform.position;
+            EnemyPool.Instance.ReturnEnemy(this.type, this.gameObject);
         }
     }
 }

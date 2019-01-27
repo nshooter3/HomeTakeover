@@ -21,7 +21,7 @@
         //Shooting related variables
         public float shotPower = 2f;
         public float powerShotPower = 7f;
-        public GameObject bullet;
+        public Furniture.FurniturePool.FurnitureTypes bullet;
         public int ammocount = 3;
         int initialAmmoCount;
 
@@ -165,17 +165,15 @@
             int shouldReverse = -1;
             if (right) { shouldReverse *= -1; }
 
-            if (powerShot)
+            GameObject temp = Furniture.FurniturePool.Instance.GetFurniture(bullet);
+            if (temp != null)
             {
-                GameObject temp = GameObject.Instantiate<GameObject>(bullet);
                 temp.transform.position = this.gameObject.transform.position;
-                temp.GetComponent<Rigidbody2D>().velocity = new Vector2(1 * shouldReverse, 0) * playerDistance * powerShotPower;
-            }
-            else
-            { 
-                GameObject temp = GameObject.Instantiate<GameObject>(bullet);
-                temp.transform.position = this.gameObject.transform.position;
-                temp.GetComponent<Rigidbody2D>().velocity = new Vector2(1 * shouldReverse,1) * playerDistance * shotPower;
+
+                if (powerShot)
+                    temp.GetComponent<Rigidbody2D>().velocity = new Vector2(1 * shouldReverse, 0) * playerDistance * powerShotPower;
+                else
+                    temp.GetComponent<Rigidbody2D>().velocity = new Vector2(1 * shouldReverse, 1) * playerDistance * shotPower;
             }
             particles.Emit(1);
         }
