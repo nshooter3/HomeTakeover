@@ -4422,7 +4422,7 @@ GameObject:
   - component: {fileID: 242134654}
   - component: {fileID: 242134653}
   - component: {fileID: 242134652}
-  m_Layer: 14
+  m_Layer: 16
   m_Name: PlatformMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5259,10 +5259,12 @@ MonoBehaviour:
   - {fileID: 611270772}
   - {fileID: 611270771}
   spawners: []
+  furnitureSpawners: []
   waves:
   - {fileID: 3991030555615223454, guid: fae37ab047c9c234db25c43a03167ab0, type: 3}
   timeBetweenWaves: 60
   timeBetweenStress: 1
+  timeBetweenFurniture: 0
   stress: 0
 --- !u!4 &611270774
 Transform:
@@ -6008,7 +6010,7 @@ GameObject:
   - component: {fileID: 1505328559}
   - component: {fileID: 1505328558}
   - component: {fileID: 1505328560}
-  m_Layer: 15
+  m_Layer: 17
   m_Name: WallMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6885,8 +6887,7 @@ PrefabInstance:
       propertyPath: reticule
       value: 
       objectReference: {fileID: 398070142}
-    m_RemovedComponents:
-    - {fileID: 8630908420157398636, guid: ef0deb5480b7e2d4fa5e3fe14c3e298b, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef0deb5480b7e2d4fa5e3fe14c3e298b, type: 3}
 --- !u!4 &1780581659 stripped
 Transform:

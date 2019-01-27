@@ -258,7 +258,7 @@ MonoBehaviour:
   right: {fileID: 7671241425332621883}
   groundCheckLayerMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 65792
   platformCheckLayerMask:
     serializedVersion: 2
     m_Bits: 16384
