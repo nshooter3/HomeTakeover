@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 508601373, guid: f26304a197e250140b489bdb136e78fc, type: 3}
       propertyPath: m_Name
-      value: ArmchairEnemy
+      value: ArmchairEnemy Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2431597980475134337, guid: f26304a197e250140b489bdb136e78fc,
         type: 3}
@@ -69,6 +69,10 @@ PrefabInstance:
     - target: {fileID: 1191928604, guid: f26304a197e250140b489bdb136e78fc, type: 3}
       propertyPath: chargingRotation.z
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191928604, guid: f26304a197e250140b489bdb136e78fc, type: 3}
+      propertyPath: maxHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6727694561901425335, guid: f26304a197e250140b489bdb136e78fc,
         type: 3}
