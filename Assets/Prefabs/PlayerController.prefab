@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 500
-  jumpspeed: 9
+  jumpspeed: 11
   left: {fileID: 1097492836157846413}
   right: {fileID: 7671241425332621883}
   groundCheckLayerMask:
@@ -249,6 +249,7 @@ MonoBehaviour:
   anim: {fileID: 3689892656763177614}
   armMeleeTimer: 0
   maxArmMeleeTimer: 0.15
+  direction: {x: 0, y: 0}
 --- !u!212 &1952697957717543984
 SpriteRenderer:
   m_ObjectHideFlags: 0
