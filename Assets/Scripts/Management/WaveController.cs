@@ -6,7 +6,7 @@
     public class WaveController : MonoBehaviour
     {
         public Util.ObjectPooling.ObjectPool[] pools;
-        public Spawner.EnemySpawner spawner;
+        public Spawner.EnemySpawner[] spawners;
         public Spawner.Wave[] waves;
         public float timeBetweenWaves;
         public float timeBetweenStress;
@@ -17,6 +17,7 @@
         private float stressTime;
         private int wave;
         private List<GameObject> spawns;
+        private int spawner;
 
         private void Start()
         {
@@ -26,6 +27,7 @@
             time = timeBetweenWaves;
             stressTime = 0;
             wave = 0;
+            spawner = 0;
             stress = 0;
             spawns = new List<GameObject>();
         }
@@ -35,10 +37,14 @@
             if ((time += Time.deltaTime) > timeBetweenWaves)
             {
                 foreach (Enemies.EnemyPool.EnemyTypes t in waves[wave].enemies)
-                {
-                    GameObject g = spawner.Spawn(t);
+            {
+                    GameObject g = spawners[spawner].Spawn(t);
                     if (g != null)
                         spawns.Add(g);
+
+                    spawner++;
+                    if (spawner >= spawners.Length)
+                        spawner = 0;
                 }
 
                 wave++;
