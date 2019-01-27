@@ -18,5 +18,10 @@
         /// custom id to ensure that enemies don't take same attack twice
         /// </summary>
         public int attackId;
+
+        /// <summary>
+        /// Set to true when an enemy takes damage from this. Used to notify the furniture to take durability damage
+        /// </summary>
+        public bool hitEnemy = false;
     }
 }

@@ -126,6 +126,10 @@
         // Update is called once per frame
         void Update()
         {
+            if (heldItem != null && heldItem.gameObject.activeSelf == false)
+            {
+                heldItem = null;
+            }
             Move();
             UpdateArm();
             UpdateAnimations();

@@ -40,7 +40,7 @@
             }
         }
 
-        private void Update()
+        void Update()
         {
             if (cooldown > 0)
             {
@@ -53,6 +53,11 @@
                 {
                     ToggleHurtBox(false);
                 }
+            }
+            if (punchDamage.hitEnemy == true)
+            {
+                TakeDurabilityDamage(1);
+                punchDamage.hitEnemy = false;
             }
         }
     }
