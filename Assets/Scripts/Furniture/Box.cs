@@ -40,6 +40,12 @@
             }
         }
 
+        public override void OnThrowChild()
+        {
+            ToggleHurtBox(true);
+            punchDamage.attackId = PlayerController.instance.RequestAttackId();
+        }
+
         void Update()
         {
             if (isBroken)

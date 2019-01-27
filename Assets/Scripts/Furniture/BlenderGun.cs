@@ -11,6 +11,8 @@
 
         private SpriteRenderer sprite;
 
+        public DamageDealer throwDamage;
+
 
         // Start is called before the first frame update
         void Start()
@@ -28,6 +30,12 @@
         {
             gunParticles.Play();
             int attackId = PlayerController.instance.RequestAttackId();
+        }
+
+        public override void OnThrowChild()
+        {
+            ToggleHurtBox(true);
+            throwDamage.attackId = PlayerController.instance.RequestAttackId();
         }
     }
 }

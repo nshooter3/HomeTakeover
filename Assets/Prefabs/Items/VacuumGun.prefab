@@ -5428,9 +5428,11 @@ MonoBehaviour:
   isBroken: 0
   breakTimer: 0
   maxBreakTimer: 0.25
-  throwDamage: 0
+  throwDamage: 1
   hitbox: {fileID: 7842116688387092352}
   hurtbox: {fileID: 5634348123162102946}
+  thrown: 0
   rotationOffset: {x: 0, y: 0, z: 180}
   healthBar: {fileID: 5634348123681640737}
   gunParticles: {fileID: 5634348124415109615}
+  throwDamage: {fileID: 6930550834856587308}

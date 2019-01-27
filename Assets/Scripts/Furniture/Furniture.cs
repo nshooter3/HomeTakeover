@@ -52,6 +52,8 @@
         private Vector3 originalScale;
         private bool isScaled;
 
+        public bool thrown = false;
+
         /// <summary>
         /// How much to z rotate weapon by when held
         /// </summary>
@@ -174,7 +176,11 @@
             OnDrop(dropCoordinates);
             rgbd.velocity = direction * magnitude + playerVelocity;
             hitbox.enabled = true;
+            thrown = true;
+            OnThrowChild();
         }
+
+        public abstract void OnThrowChild();
 
         /// <summary>
         /// Turns on/off the trigger collider that damages enemies upon entry
@@ -222,6 +228,14 @@
             if(collision.gameObject.layer == LayerMask.NameToLayer("bullet"))
             {
                 TakeDurabilityDamage(1);
+            }
+            if (collision.gameObject.layer == LayerMask.NameToLayer("ground") || collision.gameObject.layer == LayerMask.NameToLayer("platform"))
+            {
+                if (thrown)
+                {
+                    thrown = false;
+                    ToggleHurtBox(false);
+                }
             }
         }
 
