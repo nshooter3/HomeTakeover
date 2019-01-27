@@ -135,6 +135,10 @@
             UpdateAnimations();
         }
 
+        void TakeDamage(int damage)
+        {
+            // take damage from enemy health -= damage
+        }
         void UpdateArm()
         {
             UpdateArmRotation();

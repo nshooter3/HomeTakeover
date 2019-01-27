@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet2
       objectReference: {fileID: 0}
+    - target: {fileID: 2920653044386301334, guid: 9b7f95a0c2ad47b4787afff794abf26f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 402002981026953049, guid: 9b7f95a0c2ad47b4787afff794abf26f,
         type: 3}
       propertyPath: m_LocalPosition.x
