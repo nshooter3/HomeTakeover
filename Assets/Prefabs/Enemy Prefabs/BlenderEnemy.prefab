@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 508601375}
   - component: {fileID: 388500000}
   - component: {fileID: 5286203052265397118}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BlenderEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,10 +154,11 @@ MonoBehaviour:
   referenceIndex: 0
   rgbd2d: {fileID: 508601375}
   flipTime: 1
-  enemyAttackRange: 3
+  enemyAttackRange: 4
   inRange: 0
   shotPower: 2
   powerShotPower: 7
+  furniture: 0
   bullet: 0
   ammocount: 3
   blenderSprite: {fileID: 8006165487669481398}
@@ -194,7 +195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 818579506}
   - component: {fileID: 818579505}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +241,7 @@ GameObject:
   - component: {fileID: 895792539}
   - component: {fileID: 895792541}
   - component: {fileID: 895792540}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +316,7 @@ GameObject:
   - component: {fileID: 1282098727}
   - component: {fileID: 1282098726}
   - component: {fileID: 1282098725}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -415,7 +416,7 @@ GameObject:
   - component: {fileID: 1824568459}
   - component: {fileID: 1824568461}
   - component: {fileID: 1824568460}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -489,7 +490,7 @@ GameObject:
   - component: {fileID: 1910702690}
   - component: {fileID: 1910702692}
   - component: {fileID: 1910702691}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -561,7 +562,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2081525494302277492}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LegPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -594,7 +595,7 @@ GameObject:
   - component: {fileID: 5007451988974561545}
   - component: {fileID: 5907934141180000742}
   - component: {fileID: 8429864003803391378}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SpringObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -667,7 +668,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6642802287539915050}
   - component: {fileID: 8554824604579562361}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Blender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -748,6 +749,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991076976351730602, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
         type: 3}

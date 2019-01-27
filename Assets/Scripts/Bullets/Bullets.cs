@@ -11,6 +11,7 @@
     {
         public BulletPool.BulletTypes type;
         public float speed = 3f;
+        public bool gravity = false;
        // public Furniture.FurniturePool.FurnitureTypes deathItem;
         public bool facing = false;
         private Transform spriteTransform;
@@ -79,16 +80,22 @@
         /*
        Collider behavoirs for Player and PlayerAttack
         */
-        private void OnTriggerEnter2D(Collider2D collision)
+       void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.tag == "player")
+            rgbd.velocity = Vector3.zero;
+            Deallocate();
+            if (collision.gameObject.tag == "Player")
             {
-                BulletPool.Instance.ReturnBullet(this.type, this.gameObject);
+                
             }
         }
         void Init()
         {
             rgbd = GetComponent<Rigidbody2D>();
+            if (!gravity)
+            {
+                rgbd.gravityScale = 0.0f;
+            }
             hitbox.enabled = true;
             spriteTransform = gameObject.GetComponentInChildren<SpriteRenderer>().transform;
             originalScale = spriteTransform.localScale;
