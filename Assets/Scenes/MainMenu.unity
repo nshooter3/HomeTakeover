@@ -617,7 +617,7 @@ MonoBehaviour:
   mainSelected: {fileID: 1511070802}
   creditsParent: {fileID: 1524248558}
   creditsSelected: {fileID: 1816342266}
-  scene: PLAY
+  scene: Level
 --- !u!114 &897709841
 MonoBehaviour:
   m_ObjectHideFlags: 0
