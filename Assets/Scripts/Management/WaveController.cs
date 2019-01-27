@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using UnityEngine;
+    using UnityEngine.SceneManagement;
 
     public class WaveController : MonoBehaviour
     {
@@ -12,6 +13,8 @@
         public float timeBetweenWaves;
         public float timeBetweenStress;
         public float timeBetweenFurniture;
+        public TimeTracker timetracker;
+        public int maxStress;
 
         public float stress;
 
@@ -40,8 +43,15 @@
 
         private void Update()
         {
+            timetracker.time += Time.deltaTime;
             if ((time += Time.deltaTime) > timeBetweenWaves)
             {
+                if (wave >= waves.Length)
+                {
+                    timetracker.isWin = true;
+                    SceneManager.LoadScene("End");
+                    return;
+                }
                 foreach (Enemies.EnemyPool.EnemyTypes t in waves[wave].enemies)
                 {
                     GameObject g = spawners[spawner].Spawn(t);
@@ -54,8 +64,7 @@
                 }
 
                 wave++;
-                if (wave >= waves.Length)
-                    wave = 0;
+
                 time = 0;
             }
             if ((stressTime += Time.deltaTime) > timeBetweenStress)
@@ -69,8 +78,16 @@
 
                 spawns = temp;
 
-                if (spawns.Count > 0)
+                if (spawns.Count > stress)
                     stress++;
+                else if (spawns.Count < stress)
+                    stress--;
+
+                if(stress > maxStress)
+                {
+                    timetracker.isWin = false;
+                    SceneManager.LoadScene("End");
+                }
 
                 stressTime = 0;
             }

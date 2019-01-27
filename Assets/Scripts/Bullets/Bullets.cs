@@ -83,7 +83,7 @@
        void OnTriggerEnter2D(Collider2D collision)
         {
             rgbd.velocity = Vector3.zero;
-            Deallocate();
+           BulletPool.Instance.ReturnBullet(this.type, this.gameObject);
             if (collision.gameObject.tag == "Player")
             {
                 
