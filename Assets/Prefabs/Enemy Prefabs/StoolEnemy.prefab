@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1191928599}
   - component: {fileID: 1191928604}
   - component: {fileID: 6970913773670382353}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: StoolEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 8190648921079953183}
   - component: {fileID: 1247566434077896179}
   - component: {fileID: 8202466990942098863}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AbsorbParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4896,7 +4896,7 @@ GameObject:
   - component: {fileID: 1392339412379411433}
   - component: {fileID: 4757422778633611932}
   - component: {fileID: 3004211054766738749}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4971,7 +4971,7 @@ GameObject:
   - component: {fileID: 1684128140581635243}
   - component: {fileID: 5483671443672332143}
   - component: {fileID: 4609354064128557712}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5071,7 +5071,7 @@ GameObject:
   - component: {fileID: 4870221761003536090}
   - component: {fileID: 9076496373485984828}
   - component: {fileID: 3829974066648202639}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5144,7 +5144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8973610241722622414}
   - component: {fileID: 6727694561901425335}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5222,7 +5222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2081525494302277492}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LegPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5255,7 +5255,7 @@ GameObject:
   - component: {fileID: 5007451988974561545}
   - component: {fileID: 5907934141180000742}
   - component: {fileID: 8429864003803391378}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SpringObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5329,7 +5329,7 @@ GameObject:
   - component: {fileID: 1824042616547327658}
   - component: {fileID: 610327384194415402}
   - component: {fileID: 2934755740643142687}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5402,7 +5402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 811225513700095356}
   - component: {fileID: 5182658061053888761}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5448,6 +5448,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DustParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991076976351730602, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
         type: 3}
@@ -5635,6 +5640,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991076976351730602, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7750033953972797953, guid: 3d2a36251dc6b3a4ea5cc8b947bf4a06,
         type: 3}

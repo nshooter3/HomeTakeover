@@ -112,7 +112,7 @@
         */
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.tag == "furnitureAttack")
+            if (collision.gameObject.tag == "furnitureAttack" || collision.gameObject.tag == "PlayerBullet")
             {
                 collision.gameObject.GetComponent<DamageDealer>().hitEnemy = true;
 
