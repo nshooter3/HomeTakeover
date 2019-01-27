@@ -10,7 +10,7 @@
         [SerializeField]
         private int[] furniturePoolSizes;
 
-        public enum FurnitureTypes { Box , Blender, Stool, Vacuum }
+        public enum FurnitureTypes { Box , Blender, Stool, Vacuum, Armchair }
 
         /// <summary> Singleton instance for this object pool. </summary>
         public static FurniturePool Instance { get; private set; }

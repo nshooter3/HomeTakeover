@@ -10,7 +10,7 @@
         [SerializeField]
         private int[] enemyPoolSizes;
 
-        public enum EnemyTypes { Blender, Chair, Stool, Vacuum }
+        public enum EnemyTypes { Blender, Chair, Stool, Vacuum, Armchair }
 
         /// <summary> Singleton instance for this object pool. </summary>
         public static EnemyPool Instance { get; private set; }
