@@ -4829,7 +4829,7 @@ GameObject:
   - component: {fileID: 1183819725322638955}
   m_Layer: 12
   m_Name: HurtBox
-  m_TagString: Untagged
+  m_TagString: furnitureAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5049,7 +5049,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cb6940d97deb9438c5e6d7e98fb7be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   pivotPoint: {fileID: 2514682394446613107}
+  referenceIndex: 0
   held: 0
   isOversizedObject: 0
   maxDurability: 10

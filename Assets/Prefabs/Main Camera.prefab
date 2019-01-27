@@ -94,7 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseFollowTolerance: 0.03
   playerCenter: {fileID: 0}
-  maxDistanceFromPlayerCenter: 3
+  maxDistanceFromPlayerCenter: 99
 --- !u!1 &8631096664532536237
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  offset: {x: 0, y: 0}
+  offset: {x: 0, y: 4}
 --- !u!114 &5147049618646078028
 MonoBehaviour:
   m_ObjectHideFlags: 0
