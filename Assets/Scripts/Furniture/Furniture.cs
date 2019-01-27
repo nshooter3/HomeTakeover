@@ -36,7 +36,7 @@
         /// <summary>
         /// How much damage this object deals as a thrown projectile
         /// </summary>
-        public int throwDamage;
+        public int ThrowDamage;
 
         /// <summary>
         /// Collider for physics/taking damage
