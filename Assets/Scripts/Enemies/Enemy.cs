@@ -17,7 +17,8 @@
         private Vector3 vectorToTarget;
         private float angle;
         private Quaternion q;
-        private int attackID;
+        private int attackID = -1;
+
    
 
         private void Start()
@@ -60,10 +61,13 @@
         {
             if (collision.gameObject.tag == "furnitureAttack")
             {
-                if (attackID != 0)
+
+                
+                if (attackID != collision.gameObject.GetComponent<DamageDealer>().attackId)
                 {
                     health--;
-                    attackID = 0;
+                    attackID = collision.gameObject.GetComponent<DamageDealer>().attackId;
+
                 }
                 if (health <= 0)
                     Die();
