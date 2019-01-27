@@ -112,6 +112,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &162179893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2514682394446613107, guid: 2542b21655b71044399e69997fb7360c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1570276375}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &339676777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -641,6 +647,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2299940582986970057, guid: 25a31a66566885e4c83723e3c28e4c5b,
+        type: 3}
+      propertyPath: deathItem
+      value: 
+      objectReference: {fileID: 162179893}
+    - target: {fileID: 2299940582986970057, guid: 25a31a66566885e4c83723e3c28e4c5b,
+        type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299940582986970057, guid: 25a31a66566885e4c83723e3c28e4c5b,
+        type: 3}
+      propertyPath: stunTime
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25a31a66566885e4c83723e3c28e4c5b, type: 3}
 --- !u!1001 &1570276375
@@ -754,7 +775,8 @@ PrefabInstance:
       propertyPath: ShapeModule.radiusThickness
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4000803099118976818, guid: 2542b21655b71044399e69997fb7360c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2542b21655b71044399e69997fb7360c, type: 3}
 --- !u!1 &1570276376 stripped
 GameObject:
@@ -774,6 +796,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ca3d9ed3e94244cac10c2974863a47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  stun: 0
+  damage: 1
+  stun: 0.5
   attackId: 0

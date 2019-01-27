@@ -9,6 +9,15 @@
     {
         private Rigidbody2D rgdb;
 
+
+        /// <summary>
+        /// Max health of player
+        /// </summary>
+        public int maxHealth;
+        /// <summary>
+        /// stress bar or current health
+        /// </summary>
+        private int stressBar;
         /// <summary>
         /// How fast the player moves
         /// </summary>
@@ -119,6 +128,7 @@
 
             armSpriteInitSize = armSprite.size;
             initObjectPivotPointY = objectPivotPoint.position.y;
+            stressBar = maxHealth;
         }
 
         // Update is called once per frame

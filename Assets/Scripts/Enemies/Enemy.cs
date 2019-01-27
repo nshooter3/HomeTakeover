@@ -30,7 +30,8 @@
         private void Update()
         {
             Run();
-            Attack();  
+            Attack();
+            Debug.Log("VELOCITY: " + this.gameObject.GetComponent<Rigidbody2D>().velocity);
         }
 
         /*
@@ -59,6 +60,7 @@
         */
         private void OnTriggerEnter2D(Collider2D collision)
         {
+
             if (collision.gameObject.tag == "furnitureAttack")
             {
                 
@@ -66,7 +68,7 @@
                 {
                     health -= collision.gameObject.GetComponent<DamageDealer>().damage;
                     attackID = collision.gameObject.GetComponent<DamageDealer>().attackId;
-                    this.GetComponent<Rigidbody2D>().drag =  collision.gameObject.GetComponent<DamageDealer>().stun;
+                    this.gameObject.GetComponent<Rigidbody2D>().velocity.Set(0, this.gameObject.GetComponent<Rigidbody2D>().velocity.y * collision.gameObject.GetComponent<DamageDealer>().stun);
                 }
                 if (health <= 0)
                     Die();

@@ -12,7 +12,7 @@
         /// <summary>
         /// 0 stuns nothing, 1 stuns small enemies, 2 stuns big enemies
         /// </summary>
-        public int stun;
+        public float stun;
 
         /// <summary>
         /// custom id to ensure that enemies don't take same attack twice

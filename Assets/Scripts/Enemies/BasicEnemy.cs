@@ -18,15 +18,17 @@
 
         //Player is in Range
         public bool inRange = false;
-
+        private float stunTimer;
         private float timer;
         private bool right;
-        
+        private float vel; 
         
         protected override void Init()
         {
+            stunTimer = 0;
             timer = 0;
             right = false;
+            vel = this.gameObject.GetComponent<Rigidbody2D>().velocity.y;
         }
 
         /*
@@ -74,9 +76,10 @@
         protected override void Run()
         {
 
-            if ((timer += Time.deltaTime) > stunTime)
+            if ((stunTimer += Time.deltaTime) > stunTime)
             {
-                this.GetComponent<Rigidbody2D>().drag = 0;
+                this.rgbd2d.velocity.Set(0, vel);
+                stunTimer = 0;
             }
 
             if ((timer += Time.deltaTime) > flipTime )
