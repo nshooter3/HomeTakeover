@@ -114,12 +114,12 @@
         {
             if (collision.gameObject.tag == "furnitureAttack" || collision.gameObject.tag == "PlayerBullet")
             {
-                collision.gameObject.GetComponent<DamageDealer>().hitEnemy = true;
+                collision.gameObject.GetComponentInChildren<DamageDealer>().hitEnemy = true;
 
-                if (attackID != collision.gameObject.GetComponent<DamageDealer>().attackId)
+                if (attackID != collision.gameObject.GetComponentInChildren<DamageDealer>().attackId)
                 {
                     TakeDamage();
-                    attackID = collision.gameObject.GetComponent<DamageDealer>().attackId;
+                    attackID = collision.gameObject.GetComponentInChildren<DamageDealer>().attackId;
                 }
                 if (health <= 0)
                     Die();

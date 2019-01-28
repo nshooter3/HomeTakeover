@@ -86,7 +86,7 @@
           
             if (collision.gameObject.layer == LayerMask.NameToLayer("enemies"))
             {
-                collision.gameObject.GetComponent<Enemy>().TakeDamage();
+                //collision.gameObject.GetComponent<Enemy>().TakeDamage();
             }
             BulletPool.Instance.ReturnBullet(this.type, this.gameObject);
         }
