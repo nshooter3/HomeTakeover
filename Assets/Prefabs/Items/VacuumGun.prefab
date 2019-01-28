@@ -192,10 +192,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: b97e7c293982bd74f8f7b7b270109b4b, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.025, y: -0.1}
+  m_Offset: {x: -0.06589398, y: 0.23651588}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -206,7 +206,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.55, y: 0.8}
+  m_Size: {x: 0.731788, y: 1.4730318}
   m_EdgeRadius: 0
 --- !u!212 &5634348123162102947
 SpriteRenderer:
@@ -393,14 +393,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 20ef535fb57c2a947919fbd91ec74072, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3d8955105c311f84fba6c89693c5b7ed, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5428,11 +5428,11 @@ MonoBehaviour:
   isBroken: 0
   breakTimer: 0
   maxBreakTimer: 0.25
-  throwDamage: 1
+  ThrowDamage: 0
   hitbox: {fileID: 7842116688387092352}
   hurtbox: {fileID: 5634348123162102946}
   thrown: 0
   rotationOffset: {x: 0, y: 0, z: 180}
   healthBar: {fileID: 5634348123681640737}
   gunParticles: {fileID: 5634348124415109615}
-  throwDamage: {fileID: 6930550834856587308}
+  throwDamage: {fileID: 0}
